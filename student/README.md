@@ -39,8 +39,7 @@
 
 ####Additional note
 There are several (382) students that belong to both datasets.
-These students can be identified by searching for identical attributes
-that characterize each student, as shown in the annexed R file.
+These students can be identified by searching for identical attributes that characterize each student, as shown in [student-merge.R](https://github.com/AythaE/Estudiantes-TID/blob/master/student/student-merge.R).
 
 ## Reference
 [Link to DataSet](http://archive.ics.uci.edu/ml/datasets/STUDENT+ALCOHOL+CONSUMPTION)
