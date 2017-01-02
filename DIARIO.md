@@ -20,3 +20,10 @@ Viendo box plot o scatter no se ve demasiado, se saca más de los histogramas.
 Se ve una correlacion de 0,6 entre el consumo de alcohol los fines de semana y entre diario.
 
 No se observa correlacion de tiempo libre o la edad con el consumo de alcohol, a pesar de lo observado en el histograma con la edad, Esto se debe a que la media de edad es de unos 17 años y hay poca gente de 21 años o más y beben bastante
+
+### 18/12/2016
+Preparar los datos para la extracción de asociación (discretización de los atributos numéricos), para luego volcarlos ya discretizados en un nuevo CSV:
++ Atributos Walc y DAlc
+ - Ambos de 1 al 5, entonces de Bin 1 a Bin 5, que representaremos como de Muy Bajo a Muy Alto; WAlc = 1 => Muy Bajo = Bin 1 por ejemplo, y DAlc = 5 => Muy Alto = Bin 5
+
+
