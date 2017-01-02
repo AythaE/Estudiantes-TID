@@ -33,73 +33,73 @@ he usado el nodo number to string para convertir los atributos Walc y Dalc en st
 ### 02/01/2017
 Luego de analizar vimos que la forma de discretizar estos valores es haciendo un replace directo de WAlc y DAlc, por ejemplo "1" = "Muy Bajo"
 
-3. **age** - student's age (numeric: from 15 to 22) -> http://www2.uned.es/iued/comenius21/IMPRIMIR/informe%20portugal.PDF
++ **age** - student's age (numeric: from 15 to 22) -> http://www2.uned.es/iued/comenius21/IMPRIMIR/informe%20portugal.PDF
 - 15 a 18 Dentro de edad escolar
 - 19 a 22 Fuera de edad escolar
 - *puesto que tenemos las edades pero no los grados que cursan, esto sería factible*
-7. **Medu** - mother's education (numeric: 0 - none,  1 - primary education (4th grade), 2 – 5th to 9th grade, 3 – secondary education or 4 – higher education)
++ **Medu** - mother's education (numeric: 0 - none,  1 - primary education (4th grade), 2 – 5th to 9th grade, 3 – secondary education or 4 – higher education)
 - 0 ninguna
 - 1 primaria
 - 2 5to a 9no grado (podria ser "primaria o secundaria incompleta"?)
 - 3 secundaria
 - 4 superior
-8. **Fedu** - father's education (numeric: 0 - none,  1 - primary education (4th grade), 2 – 5th to 9th grade, 3 – secondary education or 4 – higher education)
++ **Fedu** - father's education (numeric: 0 - none,  1 - primary education (4th grade), 2 – 5th to 9th grade, 3 – secondary education or 4 – higher education)
 - 0 ninguna
 - 1 primaria
 - 2 5to a 9no grado (podria ser "primaria o secundaria incompleta"?)
 - 3 secundaria
 - 4 superior
-13. **traveltime** - home to school travel time (numeric: 1 - <15 min., 2 - 15 to 30 min., 3 - 30 min. to 1 hour, or 4 ->1 hour)
++ **traveltime** - home to school travel time (numeric: 1 - <15 min., 2 - 15 to 30 min., 3 - 30 min. to 1 hour, or 4 ->1 hour)
 - 1 menor a 15 m y hasta 30 min -> bajo
 - 2 de 30 min a 1 hora          -> medio
 - 3 mayor a 1 hora              -> alto
-14. **studytime** - weekly study time (numeric: 1 - <2 hours, 2 - 2 to 5 hours, 3 - 5 to 10 hours, or 4 - >10 hours)
++ **studytime** - weekly study time (numeric: 1 - <2 hours, 2 - 2 to 5 hours, 3 - 5 to 10 hours, or 4 - >10 hours)
 - menor a 2 h y hasta 5 h -> bajo
 - de 5 a 10 h             -> medio
 - mayor a 10 h            -> alto
-15. **failures** - number of past class failures (numeric: n if 1 <= n < 3, else 4) (existen valores de 0 a 4=
++ **failures** - number of past class failures (numeric: n if 1 <= n < 3, else 4) (existen valores de 0 a 4=
 - 0 ninguno
 - 1 muy bajo
 - 2 bajo
 - 3 regular
 - 4 alto
-24. **famrel** - quality of family relationships (numeric: from 1 - very bad to 5 - excellent)
++ **famrel** - quality of family relationships (numeric: from 1 - very bad to 5 - excellent)
 - 1 muy malo
 - 2 malo
 - 3 bueno
 - 4 muy bueno
 - 5 excelente
-25. **freetime** - free time after school (numeric: from 1 - very low to 5 - very high)
++ **freetime** - free time after school (numeric: from 1 - very low to 5 - very high)
 - 1 muy bajo
 - 2 bajo
 - 3 medio
 - 4 alto
 - 5 muy alto
-26. **goout** - going out with friends (numeric: from 1 - very low to 5 - very high)
++ **goout** - going out with friends (numeric: from 1 - very low to 5 - very high)
 - 1 muy bajo
 - 2 bajo
 - 3 medio
 - 4 alto
 - 5 muy alto
-27. **Dalc** - workday alcohol consumption (numeric: from 1 - very low to 5 - very high)
++ **Dalc** - workday alcohol consumption (numeric: from 1 - very low to 5 - very high)
 - 1 muy bajo
 - 2 bajo
 - 3 medio
 - 4 alto
 - 5 muy alto
-28. **Walc** weekend alcohol consumption (numeric: from 1 - very low to 5 - very high)
++ **Walc** weekend alcohol consumption (numeric: from 1 - very low to 5 - very high)
 - 1 muy bajo
 - 2 bajo
 - 3 medio
 - 4 alto
 - 5 muy alto
-29. **health** - current health status (numeric: from 1 - very bad to 5 - very good) (estandarizar a *famrel*)
++ **health** - current health status (numeric: from 1 - very bad to 5 - very good) (estandarizar a *famrel*)
 - 1 muy malo
 - 2 malo
 - 3 bueno
 - 4 muy bueno
 - 5 excelente
-30. **absences** - number of school absences (numeric: from 0 to 93) => en total 94 valores
++ **absences** - number of school absences (numeric: from 0 to 93) => en total 94 valores
 - 0 a 19 muy bajo 
 - 20 a 39 bajo
 - 40 a 59 medio
@@ -109,19 +109,19 @@ o
 - 0 a 30 bajo
 - 31 a 61 medio
 - 62 a 93 alto
-31. **G1** - first period grade (numeric: from 0 to 20) http://internacional.ugr.es/pages/conversion-calificaciones/tablaconversioncalificaciones/!
++ **G1** - first period grade (numeric: from 0 to 20) http://internacional.ugr.es/pages/conversion-calificaciones/tablaconversioncalificaciones/!
 - 0 a 9   -> suspenso
 - 10 a 13 -> aprobado
 - 14 a 16 -> notable
 - 17 a 18 -> sobresaliente
 - 19 a 20 -> opcion Matricula de Honor (Excelente)
-31. **G2** - second period grade (numeric: from 0 to 20)
++ **G2** - second period grade (numeric: from 0 to 20)
 - 0 a 9   -> suspenso
 - 10 a 13 -> aprobado
 - 14 a 16 -> notable
 - 17 a 18 -> sobresaliente
 - 19 a 20 -> opcion Matricula de Honor (Excelente)
-32. **G3** - final grade (numeric: from 0 to 20, output target)
++ **G3** - final grade (numeric: from 0 to 20, output target)
 - 0 a 9   -> suspenso
 - 10 a 13 -> aprobado
 - 14 a 16 -> notable
