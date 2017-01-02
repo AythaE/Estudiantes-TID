@@ -105,7 +105,7 @@ Luego de analizar vimos que la forma de discretizar estos valores es haciendo un
   - 40 a 59 medio
   - 60 a 79 alto
   - 80 a 93 muy alto
-o
+  - *o tambien*
   - 0 a 30 bajo
   - 31 a 61 medio
   - 62 a 93 alto
