@@ -167,6 +167,14 @@ Tengo algunas modificaciones sobre el modelo de discretización propuesto por @m
     - Bin 3: Bastantes (> q2 && < q3 = (2, 6])
     - Bin 4: Muchas (> q3 = (6, 32])
 
+
+  + **health**   - current health status (numeric: from 1   - very bad to 5   - very good) (estandarizar a *famrel*)
+    - 1 muy mala
+    - 2 mala
+    - 3 normal
+    - 4 buena
+    - 5 muy buena
+
 ##### Creación de atributo Alc
 
 Crearé un atributo Alc genérico que recoja los atributos Dalc y Walc con el fin de caracterizar el consumo de alcohol general de un individuo. En dicho atributo pesa más el consumo diario de alcohol (Dalc) ya que suele ser más significativo de un alcoholismo mayor. Los valores de dicho atributo en función de Dalc y Walc se recogen en la siguiente tabla (no definitiva, habrá que probar y se pueden modificar valores)
@@ -180,3 +188,13 @@ Dalc \ Walc  | Muy bajo | Bajo     | Medio    | Alto     | Muy Alto
 **Muy alto** | Alto     | Alto     | Muy Alto | Muy Alto | Muy Alto
 
 Para crear dicho atributo he usado un Column aggregator para concatenar Dalc y Walc en un atributo Alc y luego un String replace con un diccionario `String Dictionary/students-Alc.csv` en el que he codificado dicha tabla. Los resultados se pueden ver en `student/student-por-transAlc.csv`.
+
+##### Discretización de otros atributos
+Adicionalmente me he encargado de discretizar y convertir en transacionales los siguientes atributos según la discretización comentada previamente entre @mmaguero y @aythae
+
+- **goout**
+- **health**
+- **absences**
+- **G1, G2, G3**
+
+Pueden encontrarse sus diccionarios en el directorio correspondiente y en el archivo `student/student-por-trans.csv` la salida de este proceso.
