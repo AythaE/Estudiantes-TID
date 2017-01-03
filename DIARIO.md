@@ -24,8 +24,106 @@ No se observa correlacion de tiempo libre o la edad con el consumo de alcohol, a
 ### 18/12/2016
 Preparar los datos para la extracción de asociación (discretización de los atributos numéricos), para luego volcarlos ya discretizados en un nuevo CSV:
 + Atributos Walc y DAlc
- - Ambos de 1 al 5, entonces de Bin 1 a Bin 5, que representaremos como de Muy Bajo a Muy Alto; WAlc = 1 => Muy Bajo = Bin 1 por ejemplo, y DAlc = 5 => Muy Alto = Bin 5
-
+   - Ambos de 1 al 5, entonces de Bin 1 a Bin 5, que representaremos como de Muy Bajo a Muy Alto; WAlc = 1 => Muy Bajo = Bin 1 por ejemplo, y DAlc = 5 => Muy Alto = Bin 5
+ 
 ### 02/01/2017 Aythami
 Para preparar el dataset para reglas de asociación es necesario convertir la base de datos en trasacional, para ello hay que discretizar los atributos y hacerlos nominales. Para convetir los atributos WAlc y DAlc en lugar de lo anterior usando un autobinner
 he usado el nodo number to string para convertir los atributos Walc y Dalc en string y de ahi con string replace y los diccionarios situados en el directorio `String Dictionary` he convertidos ambos atributos a nominales discretos. Tras esto he escrito estos resultados en el fichero `student/student-por-trans.csv`. Se puede encontrar el WorkFlow de knime en `knime/06-AsociacionAythami.knwf`
+ 
+### 02/01/2017
+Luego de analizar vimos que la forma de discretizar estos valores es haciendo un replace directo de WAlc y DAlc, por ejemplo "1" = "Muy Bajo"
+
++ **age**   - student's age (numeric: from 15 to 22) -> http://www2.uned.es/iued/comenius21/IMPRIMIR/informe%20portugal.PDF
+  - 15 a 18 Dentro de edad escolar
+  - 19 a 22 Fuera de edad escolar
+  - *puesto que tenemos las edades pero no los grados que cursan, esto sería factible*
++ **Medu**   - mother's education (numeric: 0   - none,  1   - primary education (4th grade), 2 – 5th to 9th grade, 3 – secondary education or 4 – higher education)
+  - 0 ninguna
+  - 1 primaria
+  - 2 5to a 9no grado (podria ser "primaria o secundaria incompleta"?)
+  - 3 secundaria
+  - 4 superior
++ **Fedu**   - father's education (numeric: 0   - none,  1   - primary education (4th grade), 2 – 5th to 9th grade, 3 – secondary education or 4 – higher education)
+  - 0 ninguna
+  - 1 primaria
+  - 2 5to a 9no grado (podria ser "primaria o secundaria incompleta"?)
+  - 3 secundaria
+  - 4 superior
++ **traveltime**   - home to school travel time (numeric: 1   - <15 min., 2   - 15 to 30 min., 3   - 30 min. to 1 hour, or 4 ->1 hour)
+  - 1 menor a 15 m y hasta 30 min -> bajo
+  - 2 de 30 min a 1 hora          -> medio
+  - 3 mayor a 1 hora              -> alto
++ **studytime**   - weekly study time (numeric: 1   - <2 hours, 2   - 2 to 5 hours, 3   - 5 to 10 hours, or 4   - >10 hours)
+  - menor a 2 h y hasta 5 h -> bajo
+  - de 5 a 10 h             -> medio
+  - mayor a 10 h            -> alto
++ **failures**   - number of past class failures (numeric: n if 1 <= n < 3, else 4) (existen valores de 0 a 4=
+  - 0 ninguno
+  - 1 muy bajo
+  - 2 bajo
+  - 3 regular
+  - 4 alto
++ **famrel**   - quality of family relationships (numeric: from 1   - very bad to 5   - excellent)
+  - 1 muy malo
+  - 2 malo
+  - 3 bueno
+  - 4 muy bueno
+  - 5 excelente
++ **freetime**   - free time after school (numeric: from 1   - very low to 5   - very high)
+  - 1 muy bajo
+  - 2 bajo
+  - 3 medio
+  - 4 alto
+  - 5 muy alto
++ **goout**   - going out with friends (numeric: from 1   - very low to 5   - very high)
+  - 1 muy bajo
+  - 2 bajo
+  - 3 medio
+  - 4 alto
+  - 5 muy alto
++ **Dalc**   - workday alcohol consumption (numeric: from 1   - very low to 5   - very high)
+  - 1 muy bajo
+  - 2 bajo
+  - 3 medio
+  - 4 alto
+  - 5 muy alto
++ **Walc** weekend alcohol consumption (numeric: from 1   - very low to 5   - very high)
+  - 1 muy bajo
+  - 2 bajo
+  - 3 medio
+  - 4 alto
+  - 5 muy alto
++ **health**   - current health status (numeric: from 1   - very bad to 5   - very good) (estandarizar a *famrel*)
+  - 1 muy malo
+  - 2 malo
+  - 3 bueno
+  - 4 muy bueno
+  - 5 excelente
++ **absences**   - number of school absences (numeric: from 0 to 93) => en total 94 valores
+  - 0 a 19 muy bajo 
+  - 20 a 39 bajo
+  - 40 a 59 medio
+  - 60 a 79 alto
+  - 80 a 93 muy alto
+  - *o tambien*
+  - 0 a 30 bajo
+  - 31 a 61 medio
+  - 62 a 93 alto
++ **G1**   - first period grade (numeric: from 0 to 20) http://internacional.ugr.es/pages/conversion-calificaciones/tablaconversioncalificaciones/!
+  - 0 a 9   -> suspenso
+  - 10 a 13 -> aprobado
+  - 14 a 16 -> notable
+  - 17 a 18 -> sobresaliente
+  - 19 a 20 -> opcion Matricula de Honor (Excelente)
++ **G2**   - second period grade (numeric: from 0 to 20)
+  - 0 a 9   -> suspenso
+  - 10 a 13 -> aprobado
+  - 14 a 16 -> notable
+  - 17 a 18 -> sobresaliente
+  - 19 a 20 -> opcion Matricula de Honor (Excelente)
++ **G3**   - final grade (numeric: from 0 to 20, output target)
+  - 0 a 9   -> suspenso
+  - 10 a 13 -> aprobado
+  - 14 a 16 -> notable
+  - 17 a 18 -> sobresaliente
+  - 19 a 20 -> opcion Matricula de Honor (Excelente)

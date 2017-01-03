@@ -1,10 +1,10 @@
-#Students DataSet
+# Students DataSet
 
 ### Attributes for both student-mat.csv (Math course) and student-por.csv (Portuguese language course) datasets:
 1. **school** - student's school (binary: "GP" - Gabriel Pereira or "MS" - Mousinho da Silveira)
 2. **sex** - student's sex (binary: "F" - female or "M" - male)
 3. **age** - student's age (numeric: from 15 to 22)
-4. address - student's home address type (binary: "U" - urban or "R" - rural)
+4. **address** - student's home address type (binary: "U" - urban or "R" - rural)
 5. **famsize** - family size (binary: "LE3" - less or equal to 3 or "GT3" - greater than 3)
 6. **Pstatus** - parent's cohabitation status (binary: "T" - living together or "A" - apart)
 7. **Medu** - mother's education (numeric: 0 - none,  1 - primary education (4th grade), 2 – 5th to 9th grade, 3 – secondary education or 4 – higher education)
@@ -37,23 +37,23 @@
 31. **G2** - second period grade (numeric: from 0 to 20)
 32. **G3** - final grade (numeric: from 0 to 20, output target)
 
-####Additional note
+#### Additional note
 There are several (382) students that belong to both datasets.
 These students can be identified by searching for identical attributes that characterize each student, as shown in [student-merge.R](https://github.com/AythaE/Estudiantes-TID/blob/master/student/student-merge.R).
 
 ## Reference
 [Link to DataSet](http://archive.ics.uci.edu/ml/datasets/STUDENT+ALCOHOL+CONSUMPTION)
-###Source:
+### Source:
 
 Fabio Pagnotta, Hossain Mohammad Amran.
 Email:fabio.pagnotta@studenti.unicam.it, mohammadamra.hossain '@' studenti.unicam.it
 University Of Camerino
 
-###Data Set Information:
+### Data Set Information:
 
 P. Cortez and A. Silva. Using Data Mining to Predict Secondary School Student Performance. In A. Brito and J. Teixeira Eds., Proceedings of 5th FUture BUsiness TEChnology Conference (FUBUTEC 2008) pp. 5-12, Porto, Portugal, April, 2008, EUROSIS, ISBN 978-9077381-39-7.
 
-###Relevant Papers:
+### Relevant Papers:
 
 Using Data Mining To Predict Secondary School Student Alcohol Consumption
 Fabio Pagnotta, Hossain Mohammad Amran,

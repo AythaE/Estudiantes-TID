@@ -2,7 +2,7 @@
 + PRESENTACION 30 MINUTOS
 + Escribir 15-20 paginas tipo estructura TFM [podemos guiarnos en las dos ultimas hojas](http://masteres.ugr.es/ing-informatica/pages/info_academica/tfm/resoluciontfm1516/resoluciontfm/!)
 + Dataset Interpretarlo
-+         Variables
++ Variables
 + Como seleccionamos el caso: sorteo, etc
 + Estudio de variales
 + analisis exploratorio
