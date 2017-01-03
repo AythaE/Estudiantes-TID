@@ -218,4 +218,7 @@ https://www.knime.org/files/nodedetails/_manipulation_column_binning_Auto_Binner
 
 Se sube en *knime/06-Asociacion* en *06-NumericoADiscreto* el resultado de las discretización total del dataset, formando uno nuevo en student/student-por-trans-discret.csv a partir del cual ahora se podrán trabajar para hallar las reglas de asociación en un workflow nuevo: podriamos trabajar con las herramientas nativas de knime o agregar los plugins de Weka para tambien trabajar con ellos.
 
+Si uno quiere replicar el proceso basta en clonar o descargar el repositorio, importar en knime *knime/06-Asociacion*, abrir *06-NumericoADiscreto* y cambiar las rutas al directorio *String Dictionary/* para cada uno de los archivos requeridos
+
+
 
