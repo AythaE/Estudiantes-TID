@@ -166,3 +166,17 @@ Tengo algunas modificaciones sobre el modelo de discretización propuesto por @m
     - Bin 2: Pocas (> q1 && < q2 = (0, 2])
     - Bin 3: Bastantes (> q2 && < q3 = (2, 6])
     - Bin 4: Muchas (> q3 = (6, 32])
+
+##### Creación de atributo Alc
+
+Crearé un atributo Alc genérico que recoja los atributos Dalc y Walc con el fin de caracterizar el consumo de alcohol general de un individuo. En dicho atributo pesa más el consumo diario de alcohol (Dalc) ya que suele ser más significativo de un alcoholismo mayor. Los valores de dicho atributo en función de Dalc y Walc se recogen en la siguiente tabla (no definitiva, habrá que probar y se pueden modificar valores)
+
+Dalc \ Walc  | Muy bajo | Bajo     | Medio    | Alto     | Muy Alto
+-------------|----------|----------|----------|----------|---------
+**Muy bajo** | Muy bajo | Muy bajo | Bajo     | Medio    | Alto
+**Bajo**     | Bajo     | Bajo     | Medio    | Medio    | Alto
+**Medio**    | Bajo     | Medio    | Medio    | Alto     | Muy Alto
+**Alto**     | Medio    | Alto     | Alto     | Alto     | Muy Alto
+**Muy alto** | Alto     | Alto     | Muy Alto | Muy Alto | Muy Alto
+
+Para crear dicho atributo he usado un Column aggregator para concatenar Dalc y Walc en un atributo Alc y luego un String replace con un diccionario `String Dictionary/students-Alc.csv` en el que he codificado dicha tabla. Los resultados se pueden ver en `student/student-por-transAlc.csv`.
