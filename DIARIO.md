@@ -210,5 +210,6 @@ Discretizando age, con numeric binner, se pueden controlar mejor los rangos, per
 Se crean los diccionarios para age, studytime, traveltime, failures, fedu, medu, freetime, famrel en el directorio ´String Dictionary´; el primero usa un *auto-binner* y los demás un *string replace*
 
 Ahora debemos unificar todas las discretizaciones para formar el dataset final, desechando los que no creamos necesarios, de todas maneras debemos evaluar si es necesario hacer un analisis estadistico nuevamente, pero esta vez sobre el dataset construido a partir de este proceso
+
 https://en.wikipedia.org/wiki/Quantile
 https://www.knime.org/files/nodedetails/_manipulation_column_binning_Auto_Binner.html
