@@ -213,3 +213,9 @@ Ahora debemos unificar todas las discretizaciones para formar el dataset final, 
 
 https://en.wikipedia.org/wiki/Quantile
 https://www.knime.org/files/nodedetails/_manipulation_column_binning_Auto_Binner.html
+
+#### Unificación de atributos discretizados en un sólo workflow
+
+Se sube en *knime/06-Asociacion* en *06-NumericoADiscreto* el resultado de las discretización total del dataset, formando uno nuevo en student/student-por-trans-discret.csv a partir del cual ahora se podrán trabajar para hallar las reglas de asociación en un workflow nuevo: podriamos trabajar con las herramientas nativas de knime o agregar los plugins de Weka para tambien trabajar con ellos.
+
+
