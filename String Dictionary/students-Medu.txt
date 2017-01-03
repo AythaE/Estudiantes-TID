@@ -1,0 +1,5 @@
+Medu-ENinguna;0
+Medu-EPrimaria;1
+Medu-E5toA9no;2
+Medu-ESecundaria;3
+Medu-ESuperior;4
