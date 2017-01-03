@@ -25,12 +25,12 @@ No se observa correlacion de tiempo libre o la edad con el consumo de alcohol, a
 Preparar los datos para la extracción de asociación (discretización de los atributos numéricos), para luego volcarlos ya discretizados en un nuevo CSV:
 + Atributos Walc y DAlc
    - Ambos de 1 al 5, entonces de Bin 1 a Bin 5, que representaremos como de Muy Bajo a Muy Alto; WAlc = 1 => Muy Bajo = Bin 1 por ejemplo, y DAlc = 5 => Muy Alto = Bin 5
- 
+
 ### 02/01/2017 Aythami
 Para preparar el dataset para reglas de asociación es necesario convertir la base de datos en trasacional, para ello hay que discretizar los atributos y hacerlos nominales. Para convetir los atributos WAlc y DAlc en lugar de lo anterior usando un autobinner
 he usado el nodo number to string para convertir los atributos Walc y Dalc en string y de ahi con string replace y los diccionarios situados en el directorio `String Dictionary` he convertidos ambos atributos a nominales discretos. Tras esto he escrito estos resultados en el fichero `student/student-por-trans.csv`. Se puede encontrar el WorkFlow de knime en `knime/06-AsociacionAythami.knwf`
- 
-### 02/01/2017
+
+### 02/01/2017 Marvin
 Luego de analizar vimos que la forma de discretizar estos valores es haciendo un replace directo de WAlc y DAlc, por ejemplo "1" = "Muy Bajo"
 
 + **age**   - student's age (numeric: from 15 to 22) -> http://www2.uned.es/iued/comenius21/IMPRIMIR/informe%20portugal.PDF
@@ -100,7 +100,7 @@ Luego de analizar vimos que la forma de discretizar estos valores es haciendo un
   - 4 muy bueno
   - 5 excelente
 + **absences**   - number of school absences (numeric: from 0 to 93) => en total 94 valores
-  - 0 a 19 muy bajo 
+  - 0 a 19 muy bajo
   - 20 a 39 bajo
   - 40 a 59 medio
   - 60 a 79 alto
@@ -127,3 +127,42 @@ Luego de analizar vimos que la forma de discretizar estos valores es haciendo un
   - 14 a 16 -> notable
   - 17 a 18 -> sobresaliente
   - 19 a 20 -> opcion Matricula de Honor (Excelente)
+
+### 03/01/2017 Aythami
+Tengo algunas modificaciones sobre el modelo de discretización propuesto por @mmaguero en la entrada anterior
+  + **age**   - student's age (numeric: from 15 to 22) -> Solo los 2 intervalos propuestos probablemente sean demasiado poco, se podría hacer una discretización basada en cuartiles (lo cual sería más acorde con el número de alumnos) con un Auto-Binner como la propuesta en la práctica 6 donde en funcion de las edades nos diera 4 intervalos ("Bin 1 - Bin 4") que con un String replace se podrían sustituir por ejemplo a (entre parentesis se indican los cuartiles y los intervalos concretos de edad a los que corresponderían):
+    - Bin 1: Muy joven (< q1 = [15, 16])
+    - Bin 2: Joven (> q1 && < q2 = (16, 17])
+    - Bin 3: Mayor (> q2 && < q3 = (17, 18])
+    - Bin 4: Muy Mayor (> q3 = (18, 22])
+
+
+  + **studytime**   - weekly study time (numeric: 1   - <2 hours, 2   - 2 to 5 hours, 3   - 5 to 10 hours, or 4   - >10 hours)
+  En lugar de 3 valores solo para que perder información (al menos inicialmente) se podría convertir directamente a la siguient escala (como se hace en la práctica 6)
+    - 1 bajo
+    - 2 medio
+    - 3 alto
+    - 4 muy alto
+
+
+  + **traveltime**   - home to school travel time (numeric: 1   - <15 min., 2   - 15 to 30 min., 3   - 30 min. to 1 hour, or 4 ->1 hour)
+  En lugar de 3 valores solo para que perder información (al menos inicialmente) se podría convertir directamente a la siguient escala (como se hace en la práctica 6)
+    - 1 bajo
+    - 2 medio
+    - 3 alto
+    - 4 muy alto
+
+
+  + **failures**   - number of past class failures (numeric: n if 1 <= n < 3, else 4) En realidad solo existen valores entre 0 y 3 en el dataset aunque la definición del atributo diga que puede haber hasta 4
+    - 0 ninguno
+    - 1 muy bajo
+    - 2 medio
+    - 3 alto
+
+
+  + **absences**   - number of school absences (numeric: from 0 to 93) => en total 94 valores.
+  Como no se sabe como están los valores también emplearía una discretización por intervalos (entre parentesis se indican los cuartiles y los intervalos concretos de faltas a los que corresponderían):
+    - Bin 1: Cero (< q1 = [0])
+    - Bin 2: Pocas (> q1 && < q2 = (0, 2])
+    - Bin 3: Bastantes (> q2 && < q3 = (2, 6])
+    - Bin 4: Muchas (> q3 = (6, 32])
