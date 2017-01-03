@@ -1,0 +1,5 @@
+FamR-Muy Malo;1
+FamR-Malo;2
+FamR-Bueno;3
+FamR-Muy Bueno;4
+FamR-Excelente;5

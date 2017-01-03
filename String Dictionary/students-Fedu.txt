@@ -1,0 +1,5 @@
+Fedu-ENinguna;0
+Fedu-EPrimaria;1
+Fedu-E5toA9no;2
+Fedu-ESecundaria;3
+Fedu-ESuperior;4

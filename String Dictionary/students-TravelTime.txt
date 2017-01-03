@@ -1,0 +1,4 @@
+TvlT-Bajo;1
+TvlT-Medio;2
+TvlT-Alto;3
+TvlT-Muy Alto;4

@@ -1,0 +1,4 @@
+StuT-Bajo;1
+StuT-Medio;2
+StuT-Alto;3
+StuT-Muy Alto;4

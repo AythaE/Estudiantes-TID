@@ -1,0 +1,5 @@
+Fail-Ninguno;0
+Fail-Muy Bajo;1
+Fail-Medio;2
+Fail-Alto;3
+Fail-Muy Alto;4
