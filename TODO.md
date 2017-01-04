@@ -9,7 +9,9 @@
 + clustering
 + intentar predecir variables clasificacion, regresion; siempre es mejor clasificacion
 + reglas de asociacion
+
 ## Sigue
+
 + Ejemplos flujos en guias de practicas
 + escribir la descripcion del dataset
 + analisis de los que vamos haciendo y viendo
@@ -21,7 +23,7 @@
 ## Tareas pendientes
 - [x] Etiquietar bien todos los atributos para hacer asociación con todos **Aythami**
 - [ ] Hacer scripts en R que cojan el dataset discretizado y pinten extraigan reglas pintando graficas (luego podemos ver para integrarlos en knime)
-- [ ] Escribir algo de la memoria
+- [ ] Escribir algo de la memoria (esqueleto doc y presentacion => 	OK)
 - [ ] Realizar algo más de analisis exploratorio con más gráficas o intentando hacer algo con el dataset transaccional para ver que cosas influyen en el Alc
 - [ ] Leer el paper bien para poder extraer alguna idea o conclusion suya
 - [ ] Hacer reglas de asociacion con weka y knime comparandolo
