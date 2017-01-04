@@ -248,3 +248,39 @@ Ahora que hemos unido los resultados de discretizar se pueden borrar los resulta
 - Borraré  `student/student-por-N2D-8primeros.csv`,  `student/student-por-trans.csv` y `student/student-por-transAlc.csv` por estar unidos todos en el fichero `student/student-por-trans-discret.csv`.
 
 - Renombraré los ficheros ubicados en `String Dictionary/` con extension `.txt` para que tengan extensión `.csv`.
+
+
+#### Comentarios sobre extracción de reglas de asociación
+
+Al empezar a extraer reglas en el workflow `06-ExtraccionReglasAsociacion`, donde se encuentra este trabajo, importando el dataset unificado (`student/student-por-trans-discret.csv`) me he percatado que aunque todos los atributos sean discretos y nominales hay algunos que se ha convertido directamente a nominales sin anteponerles un prefijo, por lo que a la hora de extraer reglas no se sabría a que atributo pertenece cada valor exactamente. En concreto los atributos que pueden dar problemas por compartir valores son:
+
+- Mjob (String)
+- Fjob (String)
+- schoolsup (String)
+- famsup (String)
+- paid (String)
+- activities (String)
+- nursery (String)
+- higher (String)
+- internet (String)
+- romantic (String)
+
+Además de estos hay otros atributos con valores sin prefijo aunque no comparten valores sería recomendable anteponer un prefijo por claridad y consistencia con el resto de atributos.
+
+Viendo los apuntes pone como ejemplo para la extracción de reglas de asociación un *minsup* para las reglas de entre 5% y 10% y una *minconf* de 60-70%.
+
+Tener cuidado con las reglas con consecuentes que tengan un alto soporte (están en casi todos los item) ya que cualquier antecedente parece buen predictor por falta de variabilidad. Esto se conoce como dependencia negativa o independencia. Para comprobar esto se puede usar la siguiente fórmula
+
+```
+if (Conf (A => C) > supp (C))
+  Regla no se descarta
+else
+  Regla descartada por dependencia negativa o independencia
+```
+
+Para medir esto se usa el interés o **lift** que es una relación entre la confianza de la regla y el soporte del antecedente.
+- Si lift > 1: El antecedente tiene un efecto positivo en la aparición del consecuente.
+- Si lift < 1: El antecedente tiene un efecto negativo en la aparición del consecuente.
+- Si lift ~= 1: El antecedente no tiene  efecto en la aparición del consecuente.
+
+Según los apuntes del tema el **Factor de certeza (CF o F)** es más interesante que el lift ya que cumple mejor las propiedades para medidas de cumplimiento que este y resuelve alguno de los inconvenientes del lift. Es una medida acotada entre [-1, 1] y una regla es más significativa cuanto mayor sea el valor. Sería interesante mirar como calcular esto para las reglas.
