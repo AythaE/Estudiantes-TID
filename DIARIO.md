@@ -304,3 +304,9 @@ Como comentario tarda bastante en cargar y he tenido que incrementar la memoria 
 Haciendo otro poco de exploratorio se puede ver en el histogram los adolescentes al cuidado de la madre consumen más alcohol, que los cuidados por el padre y otros, sin embargo en scatter plot vemos que en realidad son muchos lo que están al cuidado de la madre, más bien los que están al cuidado del padre tiene consumo de alcohol alto, inclusive que los cuidados por otros
 
 Supongo que ver en las reglas de asociacion seria lo mejor
+
+### 04/01/2017 Aythami
+
+He limpiado los workflow de asociación sustituyendo el de `06-PreparacionReglasAsociacion` (workflow parcial de @mmaguero) por `06-NumericoADiscreto` que contiene la preparación total del dataset.
+
+He incorporado el nodo "Apriori" de Weka al workflow `06-ExtraccionReglasAsociacion`, con los mismos parámetros de soporte minimo (0.12) y confianza (0.9) obteniendo las 100 mejores reglas y mostrando los itemset frecuentes. El resultado de esto se puede encontrar en el fichero `Association_rules/Apriori_conf0.9_supp0.12_100rules.txt`. 
