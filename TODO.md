@@ -27,4 +27,5 @@
 - [x] Realizar algo más de analisis exploratorio con más gráficas o intentando hacer algo con el dataset transaccional para ver que cosas influyen en el Alc **Marvin**
 - [x] Leer el paper bien para poder extraer alguna idea o conclusion suya **Aythami**
 - [x] Hacer reglas de asociacion con weka y knime comparandolo **Aythami**
+<<<<<<< HEAD
 - [x] Filtrar reglas de asociación generales **Marvin**
