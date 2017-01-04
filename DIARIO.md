@@ -309,4 +309,33 @@ Supongo que ver en las reglas de asociacion seria lo mejor
 
 He limpiado los workflow de asociación sustituyendo el de `06-PreparacionReglasAsociacion` (workflow parcial de @mmaguero) por `06-NumericoADiscreto` que contiene la preparación total del dataset.
 
-He incorporado el nodo "Apriori" de Weka al workflow `06-ExtraccionReglasAsociacion`, con los mismos parámetros de soporte minimo (0.12) y confianza (0.9) obteniendo las 100 mejores reglas y mostrando los itemset frecuentes. El resultado de esto se puede encontrar en el fichero `Association_rules/Apriori_conf0.9_supp0.12_100rules.txt`. 
+He incorporado el nodo "Apriori" de Weka al workflow `06-ExtraccionReglasAsociacion`, con los mismos parámetros de soporte minimo (0.12) y confianza (0.9) obteniendo las 100 mejores reglas y mostrando los itemset frecuentes. El resultado de esto se puede encontrar en el fichero `Association_rules/Apriori_conf0.9_supp0.12_100rules.txt`.
+
+#### Busqueda de ideas en paper
+No parecen seguir un método muy cientifico, obtienen un atributo Alc genérico mediante una media ponderada de Dalc y Walc, con esto la binarizan mediante el siguiente pseudocodigo:
+```
+if Alc < 3
+  then Alc = 0
+else
+  Alc = 1
+```
+Además de esto realizan una fusión de los estudiantes de portugués y matemáticas (aunque hay estudiantes repetidos pero no queda claro como los eliminan). Tras esto aplican correlación lineal y filtran aquellos atributos que tengan poco que ver con Alc, en concreto eliminan Fedu y las notas de las 3 evaluaciones. Usan validación cruzada junto con Random forest para elaborar su predicción. Tras esto seleccionan los mejores arboles y calculan el **porcentaje de impacto de las variables sobre el atributo Alc** usando una ecuación. Sus resultados son los siguientes:
+
+Attribute                       | Percentage
+--------------------------------|-----------
+Male                            | 25.35%
+Social                          | 21.13%
+More Free time                  | 9.39%
+Less study time                 | 8.45%
+Mother less educational quality | 7.98%
+Good Health                     | 7.04%
+No Higher education             | 4.23%
+No family support               | 3.76%
+Small family                    | 3.76%
+High travel time                | 1.88%
+Less activities                 | 1.88%
+No support school               | 1.88%
+Father work                     | 1.88%
+Internet connectivity           | 1.41%
+
+Tras esto miden la calidad de su modelo de clasificación obteniendo una tasa de error de 8.018% lo cual es aceptable.
