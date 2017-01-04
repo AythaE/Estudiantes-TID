@@ -339,3 +339,10 @@ Father work                     | 1.88%
 Internet connectivity           | 1.41%
 
 Tras esto miden la calidad de su modelo de clasificación obteniendo una tasa de error de 8.018% lo cual es aceptable.
+
+#### Trabajando con R
+He empezado a trabajar con R como se puede ver en la carpeta `R/`. El objetivo es realizar una extracción de reglas apriori aprovechando el mayor poder y flexibilidad de R y representar dichas reglas gráficamente.
+
+He creado una gráfica que muestra los items más frecuentes con un soporte >= 0,3, dicha gráfica se encuentra en `imgs/Frec Items con soporte mayot 0.3.png`.
+
+Es necesario filtrar las columnas de Dalc y Walc para utilizar solo Alc ya que estos atributos aparecen constantemente juntos al estar muy correlacionados.
