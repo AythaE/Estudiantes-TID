@@ -305,8 +305,86 @@ Haciendo otro poco de exploratorio se puede ver en el histogram los adolescentes
 
 Supongo que ver en las reglas de asociacion seria lo mejor
 
+#### Extracción reglas de asociación sin DAlc y WAlc
+Tambien he realizado una extracción de reglas de asociación con el workflow `06-ExtraccionReglasAsociacion` excluyendo DAlc y WAlc del DataSet de la colección. Como parametros del *Association Rule Learner* los siguientes:
+- Support minimo: 0,12
+- Maximal itemset Lenght: 96
+- Confianza mínima: 0,7
+
+Los resultados son 620498 reglas que he guardado en el archivo `Association_rules/Association_rules_-dalc-walc_0.7conf`.
+
+Como comentario tarda bastante en cargar y he tenido que incrementar la memoria de Knime a 5.5GB para que llegara a finalizar de calcular las reglas de asociación.
+
+#### Extracción reglas de asociación con Weka
+
+Nodo “A priori”, que implementa una forma iterativa del algoritmo “Apriori” que reduce el soporte desde una cota superior hasta otra inferior. 
+
+Donde puede verse el mecanismo de generación de ítem-sets frecuentes, la propiedad a
+priori y el hecho de que el análisis de reglas con una salida de este tipo es complejo.
+La mayor ventaja de esta forma de Weka es que permite extraer reglas de asociación
+considerando un atributo consecuente que sería el que se pretende predecir como una
+clase. Para ello:
+
+- Se selecciona la opción car a true
+- Se selecciona a 34(exluyendo WAlc y DAlc: 32) el parámetro classindex para predecir el atributo
+*Alc*, (de todas formas si se deja a -1 también funcionaría para
+predecir)
+
+##### Extracción reglas de asociación con todos los atributos con Weka
+
++ Parametros command line, consecuente Alc
+  - -I -N 100 -T 0 -C 0.9 -D 0.05 -U 1.0 -M 0.12 -S -1.0 -A -c 34
+  - -I -N 100 -T 0 -C 0.9 -D 0.05 -U 1.0 -M 0.12 -S -1.0 -A -V -c 34
+  
+Ver en `Association_rules/Apriori_conf0.9_supp0.12_100rules-Verb-F` y `Association_rules/Apriori_conf0.9_supp0.12_100rules-Verb-T`
+  
+##### Extracción reglas de asociación sin DAlc y WAlc con Weka
+
++ Parametros command line, consecuente Alc
+  - -I -N 100 -T 0 -C 0.7 -D 0.05 -U 1.0 -M 0.12 -S -1.0 -A -c 32
+  - -I -N 100 -T 0 -C 0.7 -D 0.05 -U 1.0 -M 0.12 -S -1.0 -A -V -c 32
+  
+Ver en `Association_rules/Apriori_conf0.7_supp0.12_100rules-Verb-F-Alc` y `Association_rules/Apriori_conf0.7_supp0.12_100rules-Verb-T-Alc`
+
 ### 04/01/2017 Aythami
 
 He limpiado los workflow de asociación sustituyendo el de `06-PreparacionReglasAsociacion` (workflow parcial de @mmaguero) por `06-NumericoADiscreto` que contiene la preparación total del dataset.
 
-He incorporado el nodo "Apriori" de Weka al workflow `06-ExtraccionReglasAsociacion`, con los mismos parámetros de soporte minimo (0.12) y confianza (0.9) obteniendo las 100 mejores reglas y mostrando los itemset frecuentes. El resultado de esto se puede encontrar en el fichero `Association_rules/Apriori_conf0.9_supp0.12_100rules.txt`. 
+He incorporado el nodo "Apriori" de Weka al workflow `06-ExtraccionReglasAsociacion`, con los mismos parámetros de soporte minimo (0.12) y confianza (0.9) obteniendo las 100 mejores reglas y mostrando los itemset frecuentes. El resultado de esto se puede encontrar en el fichero `Association_rules/Apriori_conf0.9_supp0.12_100rules.txt`.
+
+#### Busqueda de ideas en paper
+No parecen seguir un método muy cientifico, obtienen un atributo Alc genérico mediante una media ponderada de Dalc y Walc, con esto la binarizan mediante el siguiente pseudocodigo:
+```
+if Alc < 3
+  then Alc = 0
+else
+  Alc = 1
+```
+Además de esto realizan una fusión de los estudiantes de portugués y matemáticas (aunque hay estudiantes repetidos pero no queda claro como los eliminan). Tras esto aplican correlación lineal y filtran aquellos atributos que tengan poco que ver con Alc, en concreto eliminan Fedu y las notas de las 3 evaluaciones. Usan validación cruzada junto con Random forest para elaborar su predicción. Tras esto seleccionan los mejores arboles y calculan el **porcentaje de impacto de las variables sobre el atributo Alc** usando una ecuación. Sus resultados son los siguientes:
+
+Attribute                       | Percentage
+--------------------------------|-----------
+Male                            | 25.35%
+Social                          | 21.13%
+More Free time                  | 9.39%
+Less study time                 | 8.45%
+Mother less educational quality | 7.98%
+Good Health                     | 7.04%
+No Higher education             | 4.23%
+No family support               | 3.76%
+Small family                    | 3.76%
+High travel time                | 1.88%
+Less activities                 | 1.88%
+No support school               | 1.88%
+Father work                     | 1.88%
+Internet connectivity           | 1.41%
+
+Tras esto miden la calidad de su modelo de clasificación obteniendo una tasa de error de 8.018% lo cual es aceptable.
+
+#### Trabajando con R
+He empezado a trabajar con R como se puede ver en la carpeta `R/`. El objetivo es realizar una extracción de reglas apriori aprovechando el mayor poder y flexibilidad de R y representar dichas reglas gráficamente.
+
+He creado una gráfica que muestra los items más frecuentes con un soporte >= 0,3, dicha gráfica se encuentra en `imgs/Frec Items con soporte mayot 0.3.png`.
+
+Es necesario filtrar las columnas de Dalc y Walc para utilizar solo Alc ya que estos atributos aparecen constantemente juntos al estar muy correlacionados.
+
