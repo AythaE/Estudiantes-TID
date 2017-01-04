@@ -284,3 +284,9 @@ Para medir esto se usa el interés o **lift** que es una relación entre la conf
 - Si lift ~= 1: El antecedente no tiene  efecto en la aparición del consecuente.
 
 Según los apuntes del tema el **Factor de certeza (CF o F)** es más interesante que el lift ya que cumple mejor las propiedades para medidas de cumplimiento que este y resuelve alguno de los inconvenientes del lift. Es una medida acotada entre [-1, 1] y una regla es más significativa cuanto mayor sea el valor. Sería interesante mirar como calcular esto para las reglas. He estado consultando como calcularlo tanto en R como en Knime sin ningun resultado así que a otra cosa.
+
+### 04/01/2017 Marvin
+
+Haciendo otro poco de exploratorio se puede ver en el histogram los adolescentes al cuidado de la madre consumen más alcohol, que los cuidados por el padre y otros, sin embargo en scatter plot vemos que en realidad son muchos lo que están al cuidado de la madre, más bien los que están al cuidado del padre tiene consumo de alcohol alto, inclusive que los cuidados por otros
+
+Supongo que ver en las reglas de asociacion seria lo mejor
