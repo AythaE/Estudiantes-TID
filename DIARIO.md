@@ -283,4 +283,4 @@ Para medir esto se usa el interés o **lift** que es una relación entre la conf
 - Si lift < 1: El antecedente tiene un efecto negativo en la aparición del consecuente.
 - Si lift ~= 1: El antecedente no tiene  efecto en la aparición del consecuente.
 
-Según los apuntes del tema el **Factor de certeza (CF o F)** es más interesante que el lift ya que cumple mejor las propiedades para medidas de cumplimiento que este y resuelve alguno de los inconvenientes del lift. Es una medida acotada entre [-1, 1] y una regla es más significativa cuanto mayor sea el valor. Sería interesante mirar como calcular esto para las reglas.
+Según los apuntes del tema el **Factor de certeza (CF o F)** es más interesante que el lift ya que cumple mejor las propiedades para medidas de cumplimiento que este y resuelve alguno de los inconvenientes del lift. Es una medida acotada entre [-1, 1] y una regla es más significativa cuanto mayor sea el valor. Sería interesante mirar como calcular esto para las reglas. He estado consultando como calcularlo tanto en R como en Knime sin ningun resultado así que a otra cosa.

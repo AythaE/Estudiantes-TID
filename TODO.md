@@ -17,3 +17,10 @@
 + estadistica descriptiva: medias, etc.
 + sacar conclusiones de c/ practica
 + si existen muchas relaciones de variables encontrar coindidencia
+
+## Tareas pendientes
+- [ ] Etiquietar bien todos los atributos para hacer asociación con todos **Aythami**
+- [ ] Hacer scripts en R que cojan el dataset discretizado y pinten extraigan reglas pintando graficas (luego podemos ver para integrarlos en knime)
+- [ ] Escribir algo de la memoria
+- [ ] Realizar algo más de analisis exploratorio con más gráficas o intentando hacer algo con el dataset transaccional para ver que cosas influyen en el Alc
+- [ ] Leer el paper bien para poder extraer alguna idea o conclusion suya
