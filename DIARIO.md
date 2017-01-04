@@ -211,7 +211,7 @@ Se crean los diccionarios para age, studytime, traveltime, failures, fedu, medu,
 
 Ahora debemos unificar todas las discretizaciones para formar el dataset final, desechando los que no creamos necesarios, de todas maneras debemos evaluar si es necesario hacer un analisis estadistico nuevamente, pero esta vez sobre el dataset construido a partir de este proceso
 
-Fuentes: 
+Fuentes:
 + https://en.wikipedia.org/wiki/Quantile
 + https://www.knime.org/files/nodedetails/_manipulation_column_binning_Auto_Binner.html
 
@@ -225,11 +225,11 @@ Si uno quiere replicar el proceso basta en clonar o descargar el repositorio, im
 
 Cree un workflow en knime en *knime/06-Asociacion*, *06-ExtraccionReglasAsociacion* en base al cvs creado ya discretizado, agregué 4 atributos (school, dalc, walc, g3) al *column collection* y para el *asociation rule learner* para soporte 0.15 y para confianza 0.75, obteniendo 9 reglas y las siguientes deducciones, ver en *imgs/InteractiveTableWA-DA-School-G3*:
 
-+ Con soporte de 0.146, una confianza de 0.99 y lift 1.424. El valor de soporte expresa que en el 14.6% de las transacciones estuvieron involucrados alumnos con DA-Muy Bajo y WA-Muy Bajo, G3-Aprobado, School-GP. Según el valor de confianza, aproximadamente el 99% de las transacciones que contienen DA-Muy Bajo, también contienen WA-Muy Bajo, G3-Aprobado, School-GP. 
++ Con soporte de 0.146, una confianza de 0.99 y lift 1.424. El valor de soporte expresa que en el 14.6% de las transacciones estuvieron involucrados alumnos con DA-Muy Bajo y WA-Muy Bajo, G3-Aprobado, School-GP. Según el valor de confianza, aproximadamente el 99% de las transacciones que contienen DA-Muy Bajo, también contienen WA-Muy Bajo, G3-Aprobado, School-GP.
 
 + Con soporte de 0.14, una confianza de 0.812 y lift 1.169. El valor de soporte expresa que en el 14% de las transacciones estuvieron involucrados alumnos con DA-Muy Bajo y G3-Notable, School-GP. Según el valor de confianza, aproximadamente el 81.2% de las transacciones que contienen DA-Muy Bajo, también contienen G3-Notable, School-GP.  
 
-+ Con soporte de 0.205, una confianza de 0.985 y lift 1.418. El valor de soporte expresa que en el 20.5% de las transacciones estuvieron involucrados alumnos con DA-Muy Bajo y WA-Muy Bajo, G3-Aprobado. Según el valor de confianza, aproximadamente el 98.5% de las transacciones que contienen DA-Muy Bajo, también contienen WA-Muy Bajo, G3-Aprobado. 
++ Con soporte de 0.205, una confianza de 0.985 y lift 1.418. El valor de soporte expresa que en el 20.5% de las transacciones estuvieron involucrados alumnos con DA-Muy Bajo y WA-Muy Bajo, G3-Aprobado. Según el valor de confianza, aproximadamente el 98.5% de las transacciones que contienen DA-Muy Bajo, también contienen WA-Muy Bajo, G3-Aprobado.
 
 Fuentes:
 + http://scielo.sld.cu/scielo.php?script=sci_arttext&pid=S2227-18992015000400003
@@ -237,3 +237,14 @@ Fuentes:
 + http://eric.univ-lyon2.fr/~ricco/tanagra/fichiers/en_Tanagra_Assoc_Rules_Comparison.pdf
 
 + http://elvex.ugr.es/decsai/intelligent/workbook/D2%20Association.pdf
+
+### 04/01/2017 Aythami
+
+#### Limpieza repositorio
+Ahora que hemos unido los resultados de discretizar se pueden borrar los resultados intermedios para una mayor limpieza y claridad, por ello modificaré los siguientes ficheros:
+
+- Borraré `knime/06-AsociacionAythami.knwf` ya que ha sido integrado dentro de `knime/06-Asociacion.knwf`, en concreto en workflow `06-NumericoADiscreto`.
+
+- Borraré  `student/student-por-N2D-8primeros.csv`,  `student/student-por-trans.csv` y `student/student-por-transAlc.csv` por estar unidos todos en el fichero `student/student-por-trans-discret.csv`.
+
+- Renombraré los ficheros ubicados en `String Dictionary/` con extension `.txt` para que tengan extensión `.csv`.
