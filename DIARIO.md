@@ -256,6 +256,8 @@ Al empezar a extraer reglas en el workflow `06-ExtraccionReglasAsociacion`, dond
 
 - Mjob (String)
 - Fjob (String)
+- reason (String)
+- guardian (String)
 - schoolsup (String)
 - famsup (String)
 - paid (String)
@@ -266,6 +268,8 @@ Al empezar a extraer reglas en el workflow `06-ExtraccionReglasAsociacion`, dond
 - romantic (String)
 
 Además de estos hay otros atributos con valores sin prefijo aunque no comparten valores sería recomendable anteponer un prefijo por claridad y consistencia con el resto de atributos.
+
+**He discretizado y usado diccionarios como hasta ahora con la lista previa de atributos** con el objetivo de poder introducir todos los atributos en el Association Rule learner. El resultado de esto se puede encontrar en `student/student-por-transacional.csv`
 
 Viendo los apuntes pone como ejemplo para la extracción de reglas de asociación un *minsup* para las reglas de entre 5% y 10% y una *minconf* de 60-70%.
 
@@ -284,3 +288,13 @@ Para medir esto se usa el interés o **lift** que es una relación entre la conf
 - Si lift ~= 1: El antecedente no tiene  efecto en la aparición del consecuente.
 
 Según los apuntes del tema el **Factor de certeza (CF o F)** es más interesante que el lift ya que cumple mejor las propiedades para medidas de cumplimiento que este y resuelve alguno de los inconvenientes del lift. Es una medida acotada entre [-1, 1] y una regla es más significativa cuanto mayor sea el valor. Sería interesante mirar como calcular esto para las reglas. He estado consultando como calcularlo tanto en R como en Knime sin ningun resultado así que a otra cosa.
+
+#### Extracción reglas de asociación con todos los atributos
+He realizado una extracción de reglas de asociación con el workflow `06-ExtraccionReglasAsociacion` añadiendo todos los atributos de DataSet a la colección. Como parametros del "Association Rule Learner" los siguientes:
+- Support minimo: 0,12
+- Maximal itemset Lenght: 40
+- Confianza mínima: 0,9
+
+Los resultados son 328217 reglas que he guardado en el archivo `Association_rules/Association_rules_all_atrib.xls`.
+
+Como comentario tarda bastante en cargar y he tenido que incrementar la memoria de Knime a 4GB para que llegara a finalizar de calcular las reglas de asociación.
