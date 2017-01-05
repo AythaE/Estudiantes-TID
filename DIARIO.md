@@ -401,7 +401,18 @@ Alc
 
 Entonces, estamos frente a un dataset de no bebedores, si sumamos Los 3 primeros contra los 2 siguientes, tenemos 572 contra 77, si sumamos los 2 primeros contra los 3 siguientes 456 contra 193
 
+#### Migrar a una bd
+
+Como los csv se hacen enormes, pasé a migrar, más bien conectar, open db hace una conexion directa a la fuente csv, para poder filtrar usando sql...
+`
+select * from "Association_rules_-dalc-walc_0.7conf"
+where consequent like '%Alc%'
+order by Confidence desc, Lift desc, Support Desc`
+
+Estas son las reglas de knime, eventualmente las de R, pero para Weka toca hacer analisis mirando el txt...
+
 ### 05/01/2017 Aythami
+
 #### Continuando trabajo con R
 He filtrado las columnas que menciono en el apartado previo y he aplicado el algorimo Apriori unas cuantas veces retocando parámetros llegando a un mínimo de:
 - Soporte mínimo: 0,05
