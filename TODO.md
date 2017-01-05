@@ -29,5 +29,5 @@
 - [x] Hacer reglas de asociacion con weka y knime comparandolo **Aythami**
 - [x] Filtrar reglas de asociación generales **Marvin**
 - [x] Binarizar atributo Alc para poder buscar reglas de asociación intentando evitar el desequilibrio de las clases. **Aythami**
-- [ ] Extraer reglas de asociacion con Alc binarizado en knime.
-- [ ] Extraer reglas de asociacion con Alc binarizado en R.
+- [x] Extraer reglas de asociacion con Alc binarizado en knime.
+- [x] Extraer reglas de asociacion con Alc binarizado en R.

@@ -382,7 +382,7 @@ Internet connectivity           | 1.41%
 Tras esto miden la calidad de su modelo de clasificación obteniendo una tasa de error de 8.018% lo cual es aceptable.
 
 #### Trabajando con R
-He empezado a trabajar con R como se puede ver en la carpeta `R/`. El objetivo es realizar una extracción de reglas apriori aprovechando el mayor poder y flexibilidad de R y representar dichas reglas gráficamente.
+He empezado a trabajar con R como se puede ver en la carpeta `R/`. El objetivo es realizar una extracción de reglas apriori aprovechando el mayor poder y flexibilidad de R y representar dichas reglas gráficamente. En concreto he creado el script `R/asociacionApriori_Y_Plots.R`.
 
 He creado una gráfica que muestra los items más frecuentes con un soporte >= 0,3, dicha gráfica se encuentra en `imgs/Frec Items con soporte mayot 0.3.png`.
 
@@ -431,7 +431,7 @@ Aqui asumimos el algoritmo *apriori* implementado por Weka como mejor a el que i
 ### 05/01/2017 Aythami
 
 #### Continuando trabajo con R
-He filtrado las columnas que menciono en el apartado previo y he aplicado el algorimo Apriori unas cuantas veces retocando parámetros llegando a un mínimo de:
+He filtrado las columnas que menciono en el apartado previo y he aplicado el algoritmo Apriori unas cuantas veces retocando parámetros llegando a un mínimo de:
 - Soporte mínimo: 0,05
 - Confianza mínima: 0,7
 - Longitud de reglas: [2, 10]
@@ -442,10 +442,10 @@ Aún así solo he obtenido reglas que tienen como consecuente "Alc-Muy bajo", es
 - `imgs/Scatter_plot_R_ReglasAlc_conf0.7_supp0.05_tamReglas.png`
 
 #### Limpieza repositorio
-Voy a borrar el fichero `student/student-por-trans-discret.csv` ya que en este no estan los atributos binarios transformados para ser transaccionales. El fichero definitivo es `student/student-por-transacional.csv`.
+Voy a borrar el fichero `student/student-por-trans-discret.csv` ya que en este no están los atributos binarios transformados para ser transaccionales. El fichero definitivo es `student/student-por-transacional.csv`.
 
 #### Binarizando Alc
-Como ha indicado @mmaguero [el atributo Alc está muy desequilibrado](#05012017-marvin) por ello voy a binarizandolo de la siguiente manera:
+Como ha indicado @mmaguero [el atributo Alc está muy desequilibrado](#05012017-marvin) por ello voy a binarizándolo de la siguiente manera:
 
 Alc previo   | Alc binarizado
 -------------|---------------
@@ -456,3 +456,33 @@ Alc-Alto     | Alc-Si
 Alc-Muy alto | Alc-Si
 
 Como se puede ver en la imagen `imgs/histogramTransAlcBin.png` teniendo 2 clases aunque sigan siendo desequilibradas esperamos que la agrupación de valores permita extraer mejores reglas de asociación.
+
+Esta binarización se ha llevado a cabo en el workflow `06-Asociacion/06-BinarizacionAlc` y el resultado se encuentra en fichero `student/student-por-transacional-Alc-bin.csv`.
+
+#### Extracción de reglas de asociación con Alc binario en R
+Para ello he creado el script `R/asociacionApriori_Y_Plots_AlcBin.R` el cual sigue prácticamente el mismo flujo que seguía el script con Alc no binario. Tras extraer **847840** reglas de asociación con el algoritmo `Apriori` con los siguientes parámetros:
+
+- Soporte mínimo: 0,05
+- Confianza mínima: 0,7
+- Longitud de reglas: [2, 10]
+
+Filtro aquellas que tengan como consecuente Alc y las ordeno por confianza. Tras ello las guardo en el archivo `Association_rules/Apriori_R_conf0.7_supp0.05_AlcBin.txt.zip` en formato txt, tras esto he separado las reglas creando 2 conjuntos, los que tienen como consecuente **Alc-No** (Alc-Muy bajo y Alc-Bajo) y los que tienen **Alc-Si** (Alc-Medio, Alc-Alto y Alc-Muy alto). Estas reglas se encuentran guardadas en los ficheros `Association_rules/Apriori_R_conf0.7_supp0.05_AlcBin-No.txt.zip` y `Association_rules/Apriori_R_conf0.7_supp0.05_AlcBin-Si.txt` respectivamente. Para finalizar y mejorar la comprensión de estas reglas he creado una serie de gráficas para representarlas:
+
+- `imgs/Scatter_plot_R_ReglasAlc-Binario_conf0.7_supp0.05_lift.png` en la que se representa en forma de scatter plot las reglas respecto a su soporte y confianza además de su lift que se representa con el color. Destaca que se ven 12 puntos mucho más oscuros que el resto (con + lift), esto se debe a que estas reglas son las que tienen como consecuente "Alc-Si".
+- `imgs/Scatter_plot_R_ReglasAlc-Binario_conf0.7_supp0.05_tamReglas.png` donde representa lo mismo pero esta vez el color marca el tamaño de las reglas (antecedentes + consecuentes) con reza la leyenda.
+- `imgs/Graph_plot_R_ReglasAlc-no_conf0.7_supp0.05.png` que representa mediante una gráfica de grafo los antecedentes que forman las 10 reglas de asociación mejores (con mayor confianza) que tienen como consecuente **Alc-No**, es decir los principales factores que lo determinan. Se puede ver que todas tienen una confianza de 1 y un lift de 1.423. Cabe destacar que teniendo en cuenta el desequilibrio de las clases (456 Alc-No contra 193 Alc-Si) es fácil caer en problemas de dependencias negativas y muchos valores predicen bien Alc-No, esto puede explicar inconsistencias como que aparezcan como principales factores Actividades extra escolares si y no o que mientras que sin binarizar se caracteriza el Alc-Muy bajo por vivir en la ciudad aquí aparezca vivir en zona rural.
+- `imgs/Graph_plot_R_Alc-si_conf0.7_supp0.05.png` que representa mediante una gráfica de grafo los antecedentes que forman las 10 reglas de asociación mejores (con mayor confianza) que tienen como consecuente **Alc-Si**, es decir los principales factores que lo determinan. Cabe destacar que todas estas reglas tienen un lift mucho más alto que las previas [2,556-2,845] lo que indica hasta que punto ocurren conjuntamente los antecedentes y Alc-Si más o menos de lo esperado si fuesen independientes (lift = 1). En este caso si que se encuentrán diferentes confianzas [0,76-0,846].
+
+#### Conclusiones análisis en R
+Como se ha ido indicando a lo largo de este diario, la extracción de reglas de asociación que predigan Alc-Si o Alc-No es bastante más significativa que haciendolo sobre la escala de Muy bajo - Muy alto ya que el importante desequilibrio de las clases descarta casi todos los valores a excepción de Muy bajo por no tener suficiente soporte para entrar en las reglas de asociación. De igual manera, como se puede apreciar en los diagramas de grafo de una forma intuitiva, los factores que caracterizan el **consumo de alcohol muy bajo y el no consumo de alcohol** (bajo o muy bajo) son prácticamente los mismos:
+- Mujer
+- Quiere estudiar en la universidad
+- No hacer demasiada vida social
+- Ser aplicadas en los estudios (se ve en cosas como obtener notables, emplear un tiempo de estudio alto, no ir a clases particulares o de la escuela y no haber suspendido ninguna asignatura)
+
+Lo cual es consistente con lo obtenido respecto al **consumo de alcohol medio o superior**:
+- Hombre
+- Alta vida social
+- Sin embargo no se ha encontrado una relación entre los estudios y el consumo de alcohol moderado o elevado.
+
+Esto también es similar a los resultados obtenidos en la investigación llevada a cabo en el Paper en la que concluyen que esos 2 factores son los más determinantes para predecir el consumo de alcohol mediante árboles de decisión.
