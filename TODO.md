@@ -28,6 +28,6 @@
 - [x] Leer el paper bien para poder extraer alguna idea o conclusion suya **Aythami**
 - [x] Hacer reglas de asociacion con weka y knime comparandolo **Aythami**
 - [x] Filtrar reglas de asociación generales **Marvin**
-- [ ] Binarizar atributo Alc para poder buscar reglas de asociación intentando evitar el desequilibrio de las clases. **Aythami**
+- [x] Binarizar atributo Alc para poder buscar reglas de asociación intentando evitar el desequilibrio de las clases. **Aythami**
 - [ ] Extraer reglas de asociacion con Alc binarizado en knime.
 - [ ] Extraer reglas de asociacion con Alc binarizado en R.
