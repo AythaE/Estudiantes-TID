@@ -388,6 +388,19 @@ He creado una gráfica que muestra los items más frecuentes con un soporte >= 0
 
 Es necesario filtrar las columnas de Dalc y Walc para utilizar solo Alc ya que estos atributos aparecen constantemente juntos al estar muy correlacionados.
 
+
+### 05/01/2017 Marvin
+
+Todas las reglas de asociacion hechas con weka o knime, arrojan en mayor cantidad Alc-Muy Bajo como consecuente Alc. Viendo esto en un histograma sobre el dataset transaccional, ya discretizado, nos fijamos que Alc-Muy bajo tiene más del 50% de peso sobre el conjunto (ver *imgs/histogramTransAlc*):
+Alc
+- Muy Bajo 354
+- Bajo 102
+- Medio 116
+- Alto 44
+- Muy Alto 33
+
+Entonces, estamos frente a un dataset de no bebedores, si sumamos Los 3 primeros contra los 2 siguientes, tenemos 572 contra 77, si sumamos los 2 primeros contra los 3 siguientes 456 contra 193
+
 ### 05/01/2017 Aythami
 #### Continuando trabajo con R
 He filtrado las columnas que menciono en el apartado previo y he aplicado el algorimo Apriori unas cuantas veces retocando parámetros llegando a un mínimo de:
@@ -395,7 +408,7 @@ He filtrado las columnas que menciono en el apartado previo y he aplicado el alg
 - Confianza mínima: 0,7
 - Longitud de reglas: [2, 10]
 
-Aún así solo he obtenido reglas que tienen como consecuente "Alc-Muy bajo", esto se debe a que los valores del atributo Alc están muy desequilibrados existiendo muuuchos más Alc-Muy bajo que de ninguna otra clase. En total he obtenido 64815 reglas con la configuración previa, las cuales se encuentran en `Association_rules/Apriori_R_conf0.7_supp0.05_allRules.txt.zip`. Además de esto he generado diversas gráficas para visualizar las reglas, estas gráficas en concreto son: 
+Aún así solo he obtenido reglas que tienen como consecuente "Alc-Muy bajo", esto se debe a que los valores del atributo Alc están muy desequilibrados existiendo muuuchos más Alc-Muy bajo que de ninguna otra clase. En total he obtenido 64815 reglas con la configuración previa, las cuales se encuentran en `Association_rules/Apriori_R_conf0.7_supp0.05_allRules.txt.zip`. Además de esto he generado diversas gráficas para visualizar las reglas, estas gráficas en concreto son:
 - `imgs/Graph_plot_R_ReglasAlc_conf0.7_supp0.05.png`
 - `imgs/Scatter_plot_R_ReglasAlc_conf0.7_supp0.05_lift.png`
 - `imgs/Scatter_plot_R_ReglasAlc_conf0.7_supp0.05_tamReglas.png`
