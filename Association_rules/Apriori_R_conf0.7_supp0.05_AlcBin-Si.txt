@@ -1,0 +1,41 @@
+     lhs                           rhs           support confidence     lift
+[1]  sex=M +                                                                
+      schoolsup=ScSup-no +                                                  
+      nursery=Nurs-yes +                                                    
+      goout=GO-Muy alto      ----> Alc=Alc-Si 0.05084746  0.8461538 2.845357
+[2]  sex=M +                                                                
+      nursery=Nurs-yes +                                                    
+      goout=GO-Muy alto      ----> Alc=Alc-Si 0.05392912  0.8333333 2.802245
+[3]  sex=M +                                                                
+      schoolsup=ScSup-no +                                                  
+      paid=Paid-no +                                                        
+      goout=GO-Muy alto      ----> Alc=Alc-Si 0.05701079  0.8043478 2.704776
+[4]  sex=M +                                                                
+      paid=Paid-no +                                                        
+      goout=GO-Muy alto      ----> Alc=Alc-Si 0.06009245  0.7959184 2.676430
+[5]  sex=M +                                                                
+      schoolsup=ScSup-no +                                                  
+      goout=GO-Muy alto      ----> Alc=Alc-Si 0.06317411  0.7884615 2.651355
+[6]  sex=M +                                                                
+      goout=GO-Muy alto      ----> Alc=Alc-Si 0.06625578  0.7818182 2.629016
+[7]  sex=M +                                                                
+      Pstatus=T +                                                           
+      paid=Paid-no +                                                        
+      goout=GO-Muy alto      ----> Alc=Alc-Si 0.05238829  0.7727273 2.598446
+[8]  sex=M +                                                                
+      internet=Inet-yes +                                                   
+      goout=GO-Muy alto      ----> Alc=Alc-Si 0.05084746  0.7674419 2.580672
+[9]  sex=M +                                                                
+      Pstatus=T +                                                           
+      schoolsup=ScSup-no +                                                  
+      goout=GO-Muy alto      ----> Alc=Alc-Si 0.05546995  0.7659574 2.575681
+[10] sex=M +                                                                
+      Pstatus=T +                                                           
+      goout=GO-Muy alto      ----> Alc=Alc-Si 0.05855162  0.7600000 2.555648
+[11] sex=M +                                                                
+      Pstatus=T +                                                           
+      Medu=Medu-EPrimaria +                                                 
+      schoolsup=ScSup-no     ----> Alc=Alc-Si 0.05238829  0.7234043 2.432587
+[12] sex=M +                                                                
+      Medu=Medu-EPrimaria +                                                 
+      schoolsup=ScSup-no     ----> Alc=Alc-Si 0.05238829  0.7083333 2.381908
