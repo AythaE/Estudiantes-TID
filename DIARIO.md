@@ -313,7 +313,7 @@ Tambien he realizado una extracción de reglas de asociación con el workflow `0
 
 Los resultados son 620498 reglas que he guardado en el archivo `Association_rules/Association_rules_-dalc-walc_0.7conf`.
 
-Como comentario tarda bastante en cargar y he tenido que incrementar la memoria de Knime a 5.5GB para que llegara a finalizar de calcular las reglas de asociación.
+Como comentario tarda bastante en cargar y he tenido que incrementar la memoria de Knime a 5.8GB para que llegara a finalizar de calcular las reglas de asociación.
 
 #### Extracción reglas de asociación con Weka
 
@@ -407,9 +407,26 @@ Como los csv se hacen enormes, pasé a migrar, más bien conectar, open db hace 
 `
 select * from "Association_rules_-dalc-walc_0.7conf"
 where consequent like '%Alc%'
-order by Confidence desc, Lift desc, Support Desc`
+order by Confidence asc, Lift desc, Support Desc`
 
 Estas son las reglas de knime, eventualmente las de R, pero para Weka toca hacer analisis mirando el txt...
+
+##### Nodo Value Filter de knime
+
+Se ha probado el Value Filter de knime, filtrando los valores posibles de Alc, sin embargo ninguno arrojo reglas que antes no pudimos generar, o que sean determinantes, por eso se desechan, sin embargo el Value Filter resulta util para filtrar fuente de datos, actua como *where* de SQL
+
+Lo propio se hizo para Weka, pero tampoco se encontraron reglas muy importantes o determinantes que nantes no habiamos logramos
+
+##### Alc Binario en Knime y Weka
+
+Knime tiene problemas al generar las reglas de asociacion, incluso subiendole la memoria dedicada hasta 6.5 GB, queda procesandolo en 94-97% sin llegar a culminarlo en hora y media. Entonces a pase a probar, con un Value Filter, para Alc-si y otro para Alc-no
+
+Con Weka se puede obtener sin problemas sobre el total de atributos, obviando dalc y walc, las 100 primeras mejores reglas, todas indicando que son Alc-No *Association_rules/Apriori_conf0.7_supp0.05_100rules-Verb-T-AlcSN.txt*. Entonces con Value Filter, se volvio a generar sobre el mismo dataset, pero una asociacion para Alc-Si *Association_rules/Apriori_conf0.7_supp0.05_100rules-Verb-T-AlcSN-FilterSi.txt*  y otra para Alc-No *Association_rules/Apriori_conf0.7_supp0.05_100rules-Verb-T-AlcSN-FilterNo.txt*
+
+- conf 0.7
+- supp 0.05
+
+Aqui asumimos el algoritmo *apriori* implementado por Weka como mejor a el que implementa Knime para la creacion de las reglas de asociacion.
 
 ### 05/01/2017 Aythami
 
