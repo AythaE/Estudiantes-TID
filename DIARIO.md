@@ -415,3 +415,16 @@ Aún así solo he obtenido reglas que tienen como consecuente "Alc-Muy bajo", es
 
 #### Limpieza repositorio
 Voy a borrar el fichero `student/student-por-trans-discret.csv` ya que en este no estan los atributos binarios transformados para ser transaccionales. El fichero definitivo es `student/student-por-transacional.csv`.
+
+#### Binarizando Alc
+Como ha indicado @mmaguero [el atributo Alc está muy desequilibrado](#05012017-marvin) por ello voy a binarizandolo de la siguiente manera:
+
+Alc previo   | Alc binarizado
+-------------|---------------
+Alc-Muy bajo | Alc-No
+Alc-Bajo     | Alc-No
+Alc-Medio    | Alc-Si
+Alc-Alto     | Alc-Si
+Alc-Muy alto | Alc-Si
+
+Como se puede ver en la imagen `imgs/histogramTransAlcBin.png` teniendo 2 clases aunque sigan siendo desequilibradas esperamos que la agrupación de valores permita extraer mejores reglas de asociación.
