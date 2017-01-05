@@ -387,3 +387,17 @@ He empezado a trabajar con R como se puede ver en la carpeta `R/`. El objetivo e
 He creado una gráfica que muestra los items más frecuentes con un soporte >= 0,3, dicha gráfica se encuentra en `imgs/Frec Items con soporte mayot 0.3.png`.
 
 Es necesario filtrar las columnas de Dalc y Walc para utilizar solo Alc ya que estos atributos aparecen constantemente juntos al estar muy correlacionados.
+
+### 05/01/2017 Marvin
+
+Todas las reglas de asociacion hechas con weka o knime, arrojan en mayor cantidad Alc-Muy Bajo como consecuente Alc. Viendo esto en un histograma sobre el dataset transaccional, ya discretizado, nos fijamos que Alc-Muy bajo tiene más del 50% de peso sobre el conjunto (ver *imgs/histogramTransAlc*):
+Alc
+- Muy Bajo 354
+- Bajo 102
+- Medio 116
+- Alto 44
+- Muy Alto 33
+
+Entonces, estamos frente a un dataset de no bebedores, si sumamos Los 3 primeros contra los 2 siguientes, tenemos 572 contra 77, si sumamos los 2 primeros contra los 3 siguientes 456 contra 193
+
+### 04/01/2017 Aythami
