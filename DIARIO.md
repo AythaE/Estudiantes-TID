@@ -317,7 +317,7 @@ Como comentario tarda bastante en cargar y he tenido que incrementar la memoria 
 
 #### Extracción reglas de asociación con Weka
 
-Nodo “A priori”, que implementa una forma iterativa del algoritmo “Apriori” que reduce el soporte desde una cota superior hasta otra inferior. 
+Nodo “A priori”, que implementa una forma iterativa del algoritmo “Apriori” que reduce el soporte desde una cota superior hasta otra inferior.
 
 Donde puede verse el mecanismo de generación de ítem-sets frecuentes, la propiedad a
 priori y el hecho de que el análisis de reglas con una salida de este tipo es complejo.
@@ -335,15 +335,15 @@ predecir)
 + Parametros command line, consecuente Alc
   - -I -N 100 -T 0 -C 0.9 -D 0.05 -U 1.0 -M 0.12 -S -1.0 -A -c 34
   - -I -N 100 -T 0 -C 0.9 -D 0.05 -U 1.0 -M 0.12 -S -1.0 -A -V -c 34
-  
+
 Ver en `Association_rules/Apriori_conf0.9_supp0.12_100rules-Verb-F` y `Association_rules/Apriori_conf0.9_supp0.12_100rules-Verb-T`
-  
+
 ##### Extracción reglas de asociación sin DAlc y WAlc con Weka
 
 + Parametros command line, consecuente Alc
   - -I -N 100 -T 0 -C 0.7 -D 0.05 -U 1.0 -M 0.12 -S -1.0 -A -c 32
   - -I -N 100 -T 0 -C 0.7 -D 0.05 -U 1.0 -M 0.12 -S -1.0 -A -V -c 32
-  
+
 Ver en `Association_rules/Apriori_conf0.7_supp0.12_100rules-Verb-F-Alc` y `Association_rules/Apriori_conf0.7_supp0.12_100rules-Verb-T-Alc`
 
 ### 04/01/2017 Aythami
@@ -387,3 +387,15 @@ He empezado a trabajar con R como se puede ver en la carpeta `R/`. El objetivo e
 He creado una gráfica que muestra los items más frecuentes con un soporte >= 0,3, dicha gráfica se encuentra en `imgs/Frec Items con soporte mayot 0.3.png`.
 
 Es necesario filtrar las columnas de Dalc y Walc para utilizar solo Alc ya que estos atributos aparecen constantemente juntos al estar muy correlacionados.
+
+### 05/01/2017 Aythami
+#### Continuando trabajo con R
+He filtrado las columnas que menciono en el apartado previo y he aplicado el algorimo Apriori unas cuantas veces retocando parámetros llegando a un mínimo de:
+- Soporte mínimo: 0,05
+- Confianza mínima: 0,7
+- Longitud de reglas: [2, 10]
+
+Aún así solo he obtenido reglas que tienen como consecuente "Alc-Muy bajo", esto se debe a que los valores del atributo Alc están muy desequilibrados existiendo muuuchos más Alc-Muy bajo que de ninguna otra clase. En total he obtenido 64815 reglas con la configuración previa, las cuales se encuentran en `Association_rules/Apriori_R_conf0.7_supp0.05_allRules.txt.zip`. Además de esto he generado diversas gráficas para visualizar las reglas, estas gráficas en concreto son: 
+- `imgs/Graph_plot_R_ReglasAlc_conf0.7_supp0.05.png`
+- `imgs/Scatter_plot_R_ReglasAlc_conf0.7_supp0.05_lift.png`
+- `imgs/Scatter_plot_R_ReglasAlc_conf0.7_supp0.05_tamReglas.png`
