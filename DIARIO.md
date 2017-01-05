@@ -412,3 +412,6 @@ Aún así solo he obtenido reglas que tienen como consecuente "Alc-Muy bajo", es
 - `imgs/Graph_plot_R_ReglasAlc_conf0.7_supp0.05.png`
 - `imgs/Scatter_plot_R_ReglasAlc_conf0.7_supp0.05_lift.png`
 - `imgs/Scatter_plot_R_ReglasAlc_conf0.7_supp0.05_tamReglas.png`
+
+#### Limpieza repositorio
+Voy a borrar el fichero `student/student-por-trans-discret.csv` ya que en este no estan los atributos binarios transformados para ser transaccionales. El fichero definitivo es `student/student-por-transacional.csv`.
