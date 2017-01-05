@@ -400,4 +400,4 @@ Alc
 
 Entonces, estamos frente a un dataset de no bebedores, si sumamos Los 3 primeros contra los 2 siguientes, tenemos 572 contra 77, si sumamos los 2 primeros contra los 3 siguientes 456 contra 193
 
-### 04/01/2017 Aythami
+### 05/01/2017 Aythami
