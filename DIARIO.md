@@ -438,6 +438,8 @@ Aqui asumimos el algoritmo *apriori* implementado por Weka como mejor a el que i
 
 ##### Knime
 
+Ver *imgs/ODB-Knime-Rules-Alc-No*
+
 `SELECT * FROM "Association_rules_alc_0.7conf_0.155supp" WHERE "Consequent" LIKE '%Alc%' AND "Lift" > 1.0 ORDER BY "Support" ASC,  "Confidence" DESC, "Lift" DESC`
 
 + Support 0,16
