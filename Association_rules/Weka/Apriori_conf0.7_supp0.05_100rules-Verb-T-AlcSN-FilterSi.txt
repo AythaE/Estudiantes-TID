@@ -1,0 +1,494 @@
+
+Apriori
+=======
+
+Minimum support: 0.5 (96 instances)
+Minimum metric <confidence>: 0.7
+Number of cycles performed: 10
+
+Generated sets of large itemsets:
+
+Size of set of large itemsets L(1): 20
+
+Large Itemsets L(1):
+school=GP 124
+0  124
+sex=M 117
+0  117
+address=U 132
+0  132
+famsize=GT3 129
+0  129
+Pstatus=T 173
+0  173
+Fjob=Fjob-other 106
+0  106
+guardian=Guard-mother 125
+0  125
+traveltime=TvlT-Bajo 100
+0  100
+failures=Fail-Ninguno 152
+0  152
+schoolsup=ScSup-no 176
+0  176
+famsup=FamSup-yes 109
+0  109
+paid=Paid-no 178
+0  178
+activities=Actv-no 99
+0  99
+nursery=Nurs-yes 148
+0  148
+higher=High-yes 165
+0  165
+internet=Inet-yes 153
+0  153
+romantic=3-no 124
+0  124
+G1=G1-Aprobado 103
+0  103
+G2=G2-Aprobado 108
+0  108
+G3=G3-Aprobado 112
+0  112
+
+Size of set of large itemsets L(2): 69
+
+Large Itemsets L(2):
+school=GP address=U 99
+0  99
+school=GP Pstatus=T 108
+0  108
+school=GP failures=Fail-Ninguno 103
+0  103
+school=GP schoolsup=ScSup-no 110
+0  110
+school=GP paid=Paid-no 114
+0  114
+school=GP nursery=Nurs-yes 97
+0  97
+school=GP higher=High-yes 109
+0  109
+school=GP internet=Inet-yes 106
+0  106
+sex=M Pstatus=T 107
+0  107
+sex=M schoolsup=ScSup-no 113
+0  113
+sex=M paid=Paid-no 107
+0  107
+address=U Pstatus=T 118
+0  118
+address=U failures=Fail-Ninguno 106
+0  106
+address=U schoolsup=ScSup-no 119
+0  119
+address=U paid=Paid-no 120
+0  120
+address=U nursery=Nurs-yes 100
+0  100
+address=U higher=High-yes 115
+0  115
+address=U internet=Inet-yes 111
+0  111
+famsize=GT3 Pstatus=T 122
+0  122
+famsize=GT3 schoolsup=ScSup-no 118
+0  118
+famsize=GT3 paid=Paid-no 115
+0  115
+famsize=GT3 higher=High-yes 109
+0  109
+famsize=GT3 internet=Inet-yes 105
+0  105
+Pstatus=T guardian=Guard-mother 111
+0  111
+Pstatus=T failures=Fail-Ninguno 134
+0  134
+Pstatus=T schoolsup=ScSup-no 156
+0  156
+Pstatus=T famsup=FamSup-yes 99
+0  99
+Pstatus=T paid=Paid-no 158
+0  158
+Pstatus=T nursery=Nurs-yes 131
+0  131
+Pstatus=T higher=High-yes 147
+0  147
+Pstatus=T internet=Inet-yes 139
+0  139
+Pstatus=T romantic=3-no 111
+0  111
+Pstatus=T G2=G2-Aprobado 97
+0  97
+Pstatus=T G3=G3-Aprobado 101
+0  101
+Fjob=Fjob-other schoolsup=ScSup-no 98
+0  98
+Fjob=Fjob-other paid=Paid-no 99
+0  99
+guardian=Guard-mother failures=Fail-Ninguno 103
+0  103
+guardian=Guard-mother schoolsup=ScSup-no 113
+0  113
+guardian=Guard-mother paid=Paid-no 113
+0  113
+guardian=Guard-mother nursery=Nurs-yes 100
+0  100
+guardian=Guard-mother higher=High-yes 113
+0  113
+guardian=Guard-mother internet=Inet-yes 98
+0  98
+failures=Fail-Ninguno schoolsup=ScSup-no 137
+0  137
+failures=Fail-Ninguno paid=Paid-no 143
+0  143
+failures=Fail-Ninguno nursery=Nurs-yes 116
+0  116
+failures=Fail-Ninguno higher=High-yes 139
+0  139
+failures=Fail-Ninguno internet=Inet-yes 122
+0  122
+failures=Fail-Ninguno romantic=3-no 100
+0  100
+schoolsup=ScSup-no paid=Paid-no 161
+0  161
+schoolsup=ScSup-no nursery=Nurs-yes 135
+0  135
+schoolsup=ScSup-no higher=High-yes 149
+0  149
+schoolsup=ScSup-no internet=Inet-yes 138
+0  138
+schoolsup=ScSup-no romantic=3-no 113
+0  113
+schoolsup=ScSup-no G2=G2-Aprobado 97
+0  97
+schoolsup=ScSup-no G3=G3-Aprobado 101
+0  101
+famsup=FamSup-yes higher=High-yes 100
+0  100
+paid=Paid-no nursery=Nurs-yes 136
+0  136
+paid=Paid-no higher=High-yes 150
+0  150
+paid=Paid-no internet=Inet-yes 141
+0  141
+paid=Paid-no romantic=3-no 113
+0  113
+paid=Paid-no G2=G2-Aprobado 98
+0  98
+paid=Paid-no G3=G3-Aprobado 102
+0  102
+nursery=Nurs-yes higher=High-yes 125
+0  125
+nursery=Nurs-yes internet=Inet-yes 116
+0  116
+higher=High-yes internet=Inet-yes 132
+0  132
+higher=High-yes romantic=3-no 110
+0  110
+higher=High-yes G1=G1-Aprobado 97
+0  97
+higher=High-yes G3=G3-Aprobado 100
+0  100
+internet=Inet-yes romantic=3-no 97
+0  97
+
+Size of set of large itemsets L(3): 70
+
+Large Itemsets L(3):
+school=GP Pstatus=T paid=Paid-no 98
+0  98
+school=GP schoolsup=ScSup-no paid=Paid-no 100
+0  100
+school=GP paid=Paid-no higher=High-yes 99
+0  99
+sex=M Pstatus=T schoolsup=ScSup-no 103
+0  103
+sex=M Pstatus=T paid=Paid-no 97
+0  97
+sex=M schoolsup=ScSup-no paid=Paid-no 103
+0  103
+address=U Pstatus=T schoolsup=ScSup-no 105
+0  105
+address=U Pstatus=T paid=Paid-no 106
+0  106
+address=U Pstatus=T higher=High-yes 102
+0  102
+address=U Pstatus=T internet=Inet-yes 101
+0  101
+address=U failures=Fail-Ninguno paid=Paid-no 99
+0  99
+address=U failures=Fail-Ninguno higher=High-yes 98
+0  98
+address=U schoolsup=ScSup-no paid=Paid-no 107
+0  107
+address=U schoolsup=ScSup-no higher=High-yes 102
+0  102
+address=U schoolsup=ScSup-no internet=Inet-yes 100
+0  100
+address=U paid=Paid-no higher=High-yes 103
+0  103
+address=U paid=Paid-no internet=Inet-yes 100
+0  100
+famsize=GT3 Pstatus=T schoolsup=ScSup-no 111
+0  111
+famsize=GT3 Pstatus=T paid=Paid-no 108
+0  108
+famsize=GT3 Pstatus=T higher=High-yes 103
+0  103
+famsize=GT3 Pstatus=T internet=Inet-yes 100
+0  100
+famsize=GT3 schoolsup=ScSup-no paid=Paid-no 104
+0  104
+famsize=GT3 schoolsup=ScSup-no higher=High-yes 99
+0  99
+Pstatus=T guardian=Guard-mother schoolsup=ScSup-no 99
+0  99
+Pstatus=T guardian=Guard-mother paid=Paid-no 99
+0  99
+Pstatus=T guardian=Guard-mother higher=High-yes 99
+0  99
+Pstatus=T failures=Fail-Ninguno schoolsup=ScSup-no 119
+0  119
+Pstatus=T failures=Fail-Ninguno paid=Paid-no 125
+0  125
+Pstatus=T failures=Fail-Ninguno nursery=Nurs-yes 101
+0  101
+Pstatus=T failures=Fail-Ninguno higher=High-yes 121
+0  121
+Pstatus=T failures=Fail-Ninguno internet=Inet-yes 109
+0  109
+Pstatus=T schoolsup=ScSup-no paid=Paid-no 141
+0  141
+Pstatus=T schoolsup=ScSup-no nursery=Nurs-yes 118
+0  118
+Pstatus=T schoolsup=ScSup-no higher=High-yes 131
+0  131
+Pstatus=T schoolsup=ScSup-no internet=Inet-yes 124
+0  124
+Pstatus=T schoolsup=ScSup-no romantic=3-no 100
+0  100
+Pstatus=T paid=Paid-no nursery=Nurs-yes 119
+0  119
+Pstatus=T paid=Paid-no higher=High-yes 132
+0  132
+Pstatus=T paid=Paid-no internet=Inet-yes 127
+0  127
+Pstatus=T paid=Paid-no romantic=3-no 100
+0  100
+Pstatus=T nursery=Nurs-yes higher=High-yes 110
+0  110
+Pstatus=T nursery=Nurs-yes internet=Inet-yes 104
+0  104
+Pstatus=T higher=High-yes internet=Inet-yes 119
+0  119
+Pstatus=T higher=High-yes romantic=3-no 98
+0  98
+guardian=Guard-mother failures=Fail-Ninguno higher=High-yes 97
+0  97
+guardian=Guard-mother schoolsup=ScSup-no paid=Paid-no 101
+0  101
+guardian=Guard-mother schoolsup=ScSup-no higher=High-yes 101
+0  101
+guardian=Guard-mother paid=Paid-no higher=High-yes 101
+0  101
+failures=Fail-Ninguno schoolsup=ScSup-no paid=Paid-no 128
+0  128
+failures=Fail-Ninguno schoolsup=ScSup-no nursery=Nurs-yes 105
+0  105
+failures=Fail-Ninguno schoolsup=ScSup-no higher=High-yes 124
+0  124
+failures=Fail-Ninguno schoolsup=ScSup-no internet=Inet-yes 109
+0  109
+failures=Fail-Ninguno paid=Paid-no nursery=Nurs-yes 109
+0  109
+failures=Fail-Ninguno paid=Paid-no higher=High-yes 130
+0  130
+failures=Fail-Ninguno paid=Paid-no internet=Inet-yes 114
+0  114
+failures=Fail-Ninguno nursery=Nurs-yes higher=High-yes 105
+0  105
+failures=Fail-Ninguno higher=High-yes internet=Inet-yes 114
+0  114
+schoolsup=ScSup-no paid=Paid-no nursery=Nurs-yes 123
+0  123
+schoolsup=ScSup-no paid=Paid-no higher=High-yes 134
+0  134
+schoolsup=ScSup-no paid=Paid-no internet=Inet-yes 126
+0  126
+schoolsup=ScSup-no paid=Paid-no romantic=3-no 102
+0  102
+schoolsup=ScSup-no nursery=Nurs-yes higher=High-yes 113
+0  113
+schoolsup=ScSup-no nursery=Nurs-yes internet=Inet-yes 105
+0  105
+schoolsup=ScSup-no higher=High-yes internet=Inet-yes 118
+0  118
+schoolsup=ScSup-no higher=High-yes romantic=3-no 100
+0  100
+paid=Paid-no nursery=Nurs-yes higher=High-yes 113
+0  113
+paid=Paid-no nursery=Nurs-yes internet=Inet-yes 107
+0  107
+paid=Paid-no higher=High-yes internet=Inet-yes 120
+0  120
+paid=Paid-no higher=High-yes romantic=3-no 99
+0  99
+nursery=Nurs-yes higher=High-yes internet=Inet-yes 99
+0  99
+
+Size of set of large itemsets L(4): 21
+
+Large Itemsets L(4):
+famsize=GT3 Pstatus=T schoolsup=ScSup-no paid=Paid-no 97
+0  97
+Pstatus=T failures=Fail-Ninguno schoolsup=ScSup-no paid=Paid-no 110
+0  110
+Pstatus=T failures=Fail-Ninguno schoolsup=ScSup-no higher=High-yes 106
+0  106
+Pstatus=T failures=Fail-Ninguno paid=Paid-no higher=High-yes 112
+0  112
+Pstatus=T failures=Fail-Ninguno paid=Paid-no internet=Inet-yes 101
+0  101
+Pstatus=T failures=Fail-Ninguno higher=High-yes internet=Inet-yes 101
+0  101
+Pstatus=T schoolsup=ScSup-no paid=Paid-no nursery=Nurs-yes 106
+0  106
+Pstatus=T schoolsup=ScSup-no paid=Paid-no higher=High-yes 116
+0  116
+Pstatus=T schoolsup=ScSup-no paid=Paid-no internet=Inet-yes 112
+0  112
+Pstatus=T schoolsup=ScSup-no nursery=Nurs-yes higher=High-yes 98
+0  98
+Pstatus=T schoolsup=ScSup-no higher=High-yes internet=Inet-yes 105
+0  105
+Pstatus=T paid=Paid-no nursery=Nurs-yes higher=High-yes 98
+0  98
+Pstatus=T paid=Paid-no higher=High-yes internet=Inet-yes 107
+0  107
+failures=Fail-Ninguno schoolsup=ScSup-no paid=Paid-no nursery=Nurs-yes 98
+0  98
+failures=Fail-Ninguno schoolsup=ScSup-no paid=Paid-no higher=High-yes 115
+0  115
+failures=Fail-Ninguno schoolsup=ScSup-no paid=Paid-no internet=Inet-yes 101
+0  101
+failures=Fail-Ninguno schoolsup=ScSup-no higher=High-yes internet=Inet-yes 101
+0  101
+failures=Fail-Ninguno paid=Paid-no nursery=Nurs-yes higher=High-yes 98
+0  98
+failures=Fail-Ninguno paid=Paid-no higher=High-yes internet=Inet-yes 106
+0  106
+schoolsup=ScSup-no paid=Paid-no nursery=Nurs-yes higher=High-yes 101
+0  101
+schoolsup=ScSup-no paid=Paid-no higher=High-yes internet=Inet-yes 106
+0  106
+
+Size of set of large itemsets L(5): 1
+
+Large Itemsets L(5):
+Pstatus=T failures=Fail-Ninguno schoolsup=ScSup-no paid=Paid-no higher=High-yes 97
+0  97
+
+Best rules found:
+
+  1. paid=Paid-no 178 ==> Alc=Alc-Si 178    conf:(1)
+  2. schoolsup=ScSup-no 176 ==> Alc=Alc-Si 176    conf:(1)
+  3. Pstatus=T 173 ==> Alc=Alc-Si 173    conf:(1)
+  4. higher=High-yes 165 ==> Alc=Alc-Si 165    conf:(1)
+  5. schoolsup=ScSup-no paid=Paid-no 161 ==> Alc=Alc-Si 161    conf:(1)
+  6. Pstatus=T paid=Paid-no 158 ==> Alc=Alc-Si 158    conf:(1)
+  7. Pstatus=T schoolsup=ScSup-no 156 ==> Alc=Alc-Si 156    conf:(1)
+  8. internet=Inet-yes 153 ==> Alc=Alc-Si 153    conf:(1)
+  9. failures=Fail-Ninguno 152 ==> Alc=Alc-Si 152    conf:(1)
+ 10. paid=Paid-no higher=High-yes 150 ==> Alc=Alc-Si 150    conf:(1)
+ 11. schoolsup=ScSup-no higher=High-yes 149 ==> Alc=Alc-Si 149    conf:(1)
+ 12. nursery=Nurs-yes 148 ==> Alc=Alc-Si 148    conf:(1)
+ 13. Pstatus=T higher=High-yes 147 ==> Alc=Alc-Si 147    conf:(1)
+ 14. failures=Fail-Ninguno paid=Paid-no 143 ==> Alc=Alc-Si 143    conf:(1)
+ 15. paid=Paid-no internet=Inet-yes 141 ==> Alc=Alc-Si 141    conf:(1)
+ 16. Pstatus=T schoolsup=ScSup-no paid=Paid-no 141 ==> Alc=Alc-Si 141    conf:(1)
+ 17. Pstatus=T internet=Inet-yes 139 ==> Alc=Alc-Si 139    conf:(1)
+ 18. failures=Fail-Ninguno higher=High-yes 139 ==> Alc=Alc-Si 139    conf:(1)
+ 19. schoolsup=ScSup-no internet=Inet-yes 138 ==> Alc=Alc-Si 138    conf:(1)
+ 20. failures=Fail-Ninguno schoolsup=ScSup-no 137 ==> Alc=Alc-Si 137    conf:(1)
+ 21. paid=Paid-no nursery=Nurs-yes 136 ==> Alc=Alc-Si 136    conf:(1)
+ 22. schoolsup=ScSup-no nursery=Nurs-yes 135 ==> Alc=Alc-Si 135    conf:(1)
+ 23. Pstatus=T failures=Fail-Ninguno 134 ==> Alc=Alc-Si 134    conf:(1)
+ 24. schoolsup=ScSup-no paid=Paid-no higher=High-yes 134 ==> Alc=Alc-Si 134    conf:(1)
+ 25. address=U 132 ==> Alc=Alc-Si 132    conf:(1)
+ 26. higher=High-yes internet=Inet-yes 132 ==> Alc=Alc-Si 132    conf:(1)
+ 27. Pstatus=T paid=Paid-no higher=High-yes 132 ==> Alc=Alc-Si 132    conf:(1)
+ 28. Pstatus=T nursery=Nurs-yes 131 ==> Alc=Alc-Si 131    conf:(1)
+ 29. Pstatus=T schoolsup=ScSup-no higher=High-yes 131 ==> Alc=Alc-Si 131    conf:(1)
+ 30. failures=Fail-Ninguno paid=Paid-no higher=High-yes 130 ==> Alc=Alc-Si 130    conf:(1)
+ 31. famsize=GT3 129 ==> Alc=Alc-Si 129    conf:(1)
+ 32. failures=Fail-Ninguno schoolsup=ScSup-no paid=Paid-no 128 ==> Alc=Alc-Si 128    conf:(1)
+ 33. Pstatus=T paid=Paid-no internet=Inet-yes 127 ==> Alc=Alc-Si 127    conf:(1)
+ 34. schoolsup=ScSup-no paid=Paid-no internet=Inet-yes 126 ==> Alc=Alc-Si 126    conf:(1)
+ 35. guardian=Guard-mother 125 ==> Alc=Alc-Si 125    conf:(1)
+ 36. nursery=Nurs-yes higher=High-yes 125 ==> Alc=Alc-Si 125    conf:(1)
+ 37. Pstatus=T failures=Fail-Ninguno paid=Paid-no 125 ==> Alc=Alc-Si 125    conf:(1)
+ 38. school=GP 124 ==> Alc=Alc-Si 124    conf:(1)
+ 39. romantic=3-no 124 ==> Alc=Alc-Si 124    conf:(1)
+ 40. Pstatus=T schoolsup=ScSup-no internet=Inet-yes 124 ==> Alc=Alc-Si 124    conf:(1)
+ 41. failures=Fail-Ninguno schoolsup=ScSup-no higher=High-yes 124 ==> Alc=Alc-Si 124    conf:(1)
+ 42. schoolsup=ScSup-no paid=Paid-no nursery=Nurs-yes 123 ==> Alc=Alc-Si 123    conf:(1)
+ 43. famsize=GT3 Pstatus=T 122 ==> Alc=Alc-Si 122    conf:(1)
+ 44. failures=Fail-Ninguno internet=Inet-yes 122 ==> Alc=Alc-Si 122    conf:(1)
+ 45. Pstatus=T failures=Fail-Ninguno higher=High-yes 121 ==> Alc=Alc-Si 121    conf:(1)
+ 46. address=U paid=Paid-no 120 ==> Alc=Alc-Si 120    conf:(1)
+ 47. paid=Paid-no higher=High-yes internet=Inet-yes 120 ==> Alc=Alc-Si 120    conf:(1)
+ 48. address=U schoolsup=ScSup-no 119 ==> Alc=Alc-Si 119    conf:(1)
+ 49. Pstatus=T failures=Fail-Ninguno schoolsup=ScSup-no 119 ==> Alc=Alc-Si 119    conf:(1)
+ 50. Pstatus=T paid=Paid-no nursery=Nurs-yes 119 ==> Alc=Alc-Si 119    conf:(1)
+ 51. Pstatus=T higher=High-yes internet=Inet-yes 119 ==> Alc=Alc-Si 119    conf:(1)
+ 52. address=U Pstatus=T 118 ==> Alc=Alc-Si 118    conf:(1)
+ 53. famsize=GT3 schoolsup=ScSup-no 118 ==> Alc=Alc-Si 118    conf:(1)
+ 54. Pstatus=T schoolsup=ScSup-no nursery=Nurs-yes 118 ==> Alc=Alc-Si 118    conf:(1)
+ 55. schoolsup=ScSup-no higher=High-yes internet=Inet-yes 118 ==> Alc=Alc-Si 118    conf:(1)
+ 56. sex=M 117 ==> Alc=Alc-Si 117    conf:(1)
+ 57. failures=Fail-Ninguno nursery=Nurs-yes 116 ==> Alc=Alc-Si 116    conf:(1)
+ 58. nursery=Nurs-yes internet=Inet-yes 116 ==> Alc=Alc-Si 116    conf:(1)
+ 59. Pstatus=T schoolsup=ScSup-no paid=Paid-no higher=High-yes 116 ==> Alc=Alc-Si 116    conf:(1)
+ 60. address=U higher=High-yes 115 ==> Alc=Alc-Si 115    conf:(1)
+ 61. famsize=GT3 paid=Paid-no 115 ==> Alc=Alc-Si 115    conf:(1)
+ 62. failures=Fail-Ninguno schoolsup=ScSup-no paid=Paid-no higher=High-yes 115 ==> Alc=Alc-Si 115    conf:(1)
+ 63. school=GP paid=Paid-no 114 ==> Alc=Alc-Si 114    conf:(1)
+ 64. failures=Fail-Ninguno paid=Paid-no internet=Inet-yes 114 ==> Alc=Alc-Si 114    conf:(1)
+ 65. failures=Fail-Ninguno higher=High-yes internet=Inet-yes 114 ==> Alc=Alc-Si 114    conf:(1)
+ 66. sex=M schoolsup=ScSup-no 113 ==> Alc=Alc-Si 113    conf:(1)
+ 67. guardian=Guard-mother schoolsup=ScSup-no 113 ==> Alc=Alc-Si 113    conf:(1)
+ 68. guardian=Guard-mother paid=Paid-no 113 ==> Alc=Alc-Si 113    conf:(1)
+ 69. guardian=Guard-mother higher=High-yes 113 ==> Alc=Alc-Si 113    conf:(1)
+ 70. schoolsup=ScSup-no romantic=3-no 113 ==> Alc=Alc-Si 113    conf:(1)
+ 71. paid=Paid-no romantic=3-no 113 ==> Alc=Alc-Si 113    conf:(1)
+ 72. schoolsup=ScSup-no nursery=Nurs-yes higher=High-yes 113 ==> Alc=Alc-Si 113    conf:(1)
+ 73. paid=Paid-no nursery=Nurs-yes higher=High-yes 113 ==> Alc=Alc-Si 113    conf:(1)
+ 74. G3=G3-Aprobado 112 ==> Alc=Alc-Si 112    conf:(1)
+ 75. Pstatus=T failures=Fail-Ninguno paid=Paid-no higher=High-yes 112 ==> Alc=Alc-Si 112    conf:(1)
+ 76. Pstatus=T schoolsup=ScSup-no paid=Paid-no internet=Inet-yes 112 ==> Alc=Alc-Si 112    conf:(1)
+ 77. address=U internet=Inet-yes 111 ==> Alc=Alc-Si 111    conf:(1)
+ 78. Pstatus=T guardian=Guard-mother 111 ==> Alc=Alc-Si 111    conf:(1)
+ 79. Pstatus=T romantic=3-no 111 ==> Alc=Alc-Si 111    conf:(1)
+ 80. famsize=GT3 Pstatus=T schoolsup=ScSup-no 111 ==> Alc=Alc-Si 111    conf:(1)
+ 81. school=GP schoolsup=ScSup-no 110 ==> Alc=Alc-Si 110    conf:(1)
+ 82. higher=High-yes romantic=3-no 110 ==> Alc=Alc-Si 110    conf:(1)
+ 83. Pstatus=T nursery=Nurs-yes higher=High-yes 110 ==> Alc=Alc-Si 110    conf:(1)
+ 84. Pstatus=T failures=Fail-Ninguno schoolsup=ScSup-no paid=Paid-no 110 ==> Alc=Alc-Si 110    conf:(1)
+ 85. famsup=FamSup-yes 109 ==> Alc=Alc-Si 109    conf:(1)
+ 86. school=GP higher=High-yes 109 ==> Alc=Alc-Si 109    conf:(1)
+ 87. famsize=GT3 higher=High-yes 109 ==> Alc=Alc-Si 109    conf:(1)
+ 88. Pstatus=T failures=Fail-Ninguno internet=Inet-yes 109 ==> Alc=Alc-Si 109    conf:(1)
+ 89. failures=Fail-Ninguno schoolsup=ScSup-no internet=Inet-yes 109 ==> Alc=Alc-Si 109    conf:(1)
+ 90. failures=Fail-Ninguno paid=Paid-no nursery=Nurs-yes 109 ==> Alc=Alc-Si 109    conf:(1)
+ 91. G2=G2-Aprobado 108 ==> Alc=Alc-Si 108    conf:(1)
+ 92. school=GP Pstatus=T 108 ==> Alc=Alc-Si 108    conf:(1)
+ 93. famsize=GT3 Pstatus=T paid=Paid-no 108 ==> Alc=Alc-Si 108    conf:(1)
+ 94. sex=M Pstatus=T 107 ==> Alc=Alc-Si 107    conf:(1)
+ 95. sex=M paid=Paid-no 107 ==> Alc=Alc-Si 107    conf:(1)
+ 96. address=U schoolsup=ScSup-no paid=Paid-no 107 ==> Alc=Alc-Si 107    conf:(1)
+ 97. paid=Paid-no nursery=Nurs-yes internet=Inet-yes 107 ==> Alc=Alc-Si 107    conf:(1)
+ 98. Pstatus=T paid=Paid-no higher=High-yes internet=Inet-yes 107 ==> Alc=Alc-Si 107    conf:(1)
+ 99. Fjob=Fjob-other 106 ==> Alc=Alc-Si 106    conf:(1)
+100. school=GP internet=Inet-yes 106 ==> Alc=Alc-Si 106    conf:(1)

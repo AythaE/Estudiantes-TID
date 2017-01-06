@@ -403,11 +403,13 @@ Entonces, estamos frente a un dataset de no bebedores, si sumamos Los 3 primeros
 
 #### Migrar a una bd
 
-Como los csv se hacen enormes, pasé a migrar, más bien conectar, open db hace una conexion directa a la fuente csv, para poder filtrar usando sql...
+Como los csv se hacen enormes, pasé a migrar, más bien conectar, *OpenOffice Database* hace una conexion directa a la fuente csv para poder filtrar usando sql...
 `
 select * from "Association_rules_-dalc-walc_0.7conf"
 where consequent like '%Alc%'
-order by Confidence asc, Lift desc, Support Desc`
+order by Confidence DESC, Lift DESC, Support ASC`
+
+Lo primero que se debe hacer es instalar OpenOffice version 4.1.3, conectar a una base de datos existente, seleccionar texto, ingresar la ubicacion del archivo, elegir el tipo (csv, txt) e ingresar el delimitador de campos. Con cada csv existente en la ubicacion seleccionada se creara como una tabla en OpenOffice Database.
 
 Estas son las reglas de knime, eventualmente las de R, pero para Weka toca hacer analisis mirando el txt...
 
@@ -419,14 +421,115 @@ Lo propio se hizo para Weka, pero tampoco se encontraron reglas muy importantes 
 
 ##### Alc Binario en Knime y Weka
 
-Knime tiene problemas al generar las reglas de asociacion, incluso subiendole la memoria dedicada hasta 6.5 GB, queda procesandolo en 94-97% sin llegar a culminarlo en hora y media. Entonces a pase a probar, con un Value Filter, para Alc-si y otro para Alc-no
+Knime tiene problemas al generar las reglas de asociacion, incluso subiendole la memoria dedicada hasta 6.5 GB, queda procesandolo en 94-97% sin llegar a culminarlo en hora y media: supp 0.05 y conf 0.7. Entonces a pase a probar, con un Value Filter, para Alc-si y otro para Alc-no:
+
+Configurando supp con 0.175 y conf 0.75 tanto para Alc-Si y Alc-No, se crean reglas generales pero ninguna para Alc especifica como consecuente.
+
+Volvi a probar el general de atributos con supp 0.155 y conf 0.7, arrojando reglas para Alc-no unicamente, la de mayor preponderancia, se ha añadido a un rar el csv generado y la bd de OpenOffice, de esta manera es más facil consultar las reglas, aplicando los filtros necesarios: *Association_rules\Association_rules_alc_0.7conf_0.155supp*
 
 Con Weka se puede obtener sin problemas sobre el total de atributos, obviando dalc y walc, las 100 primeras mejores reglas, todas indicando que son Alc-No *Association_rules/Apriori_conf0.7_supp0.05_100rules-Verb-T-AlcSN.txt*. Entonces con Value Filter, se volvio a generar sobre el mismo dataset, pero una asociacion para Alc-Si *Association_rules/Apriori_conf0.7_supp0.05_100rules-Verb-T-AlcSN-FilterSi.txt*  y otra para Alc-No *Association_rules/Apriori_conf0.7_supp0.05_100rules-Verb-T-AlcSN-FilterNo.txt*
 
 - conf 0.7
 - supp 0.05
 
-Aqui asumimos el algoritmo *apriori* implementado por Weka como mejor a el que implementa Knime para la creacion de las reglas de asociacion.
+Aqui asumimos el algoritmo *apriori* implementado por Weka como mejor a el que implementa Knime para la creacion de las reglas de asociacion. Quizas con una computadora de mayores capacidades se pueda sacar más informacion de knime, aunque Weka con su nodo apriori, cumple para una analisis mas rapido y menos que el de knime.
+
+#### Conclusiones análisis en Weka y Knime
+
+##### Knime
+
+`SELECT * FROM "Association_rules_alc_0.7conf_0.155supp" WHERE "Consequent" LIKE '%Alc%' AND "Lift" > 1.0 ORDER BY "Support" ASC,  "Confidence" DESC, "Lift" DESC`
+
++ Support 0,16
++ Confidence 0,86 a 0,84
++ Lift de 1,22 a 1,20
+
+* Regla 1 = Jovenes de Sexo femenino, sin Soporte educacional extra, Familia mayor a 3, con ningun suspenso, sin clases extras pagadas y que curiosamente han asistido a enfermeria alguna vez tienen tendencia a **Alcohol no**
+
+- ScSup-no 6
+- F 8
+- GT3 6
+- FAIL NINGUNO 6
+- paid no 5
+- Nurse yes 5
+
+Alcohol si, no se encontro nada para knime.
+
+##### Weka
+
+###### Sobre todos sin filtrar con Value Filter, solo **Alc-no**
+
+Apriori
+=======
+
+Minimum support: 0.4 (260 instances)
+Minimum metric <confidence>: 0.7
+Number of cycles performed: 12
+
+ 1. sex=F schoolsup=ScSup-no paid=Paid-no 318 ==> Alc=Alc-No 260    conf:(0.82)
+  2. sex=F schoolsup=ScSup-no 332 ==> Alc=Alc-No 269    conf:(0.81)
+  3. sex=F failures=Fail-Ninguno 329 ==> Alc=Alc-No 266    conf:(0.81)
+  4. sex=F paid=Paid-no 366 ==> Alc=Alc-No 295    conf:(0.81)
+  5. sex=F paid=Paid-no higher=High-yes 333 ==> Alc=Alc-No 267    conf:(0.8)
+  6. sex=F 383 ==> Alc=Alc-No 307    conf:(0.8)
+  7. sex=F Pstatus=T 329 ==> Alc=Alc-No 263    conf:(0.8)
+  8. sex=F higher=High-yes 348 ==> Alc=Alc-No 277    conf:(0.8)
+  9. famsize=GT3 failures=Fail-Ninguno higher=High-yes 356 ==> Alc=Alc-No 269    conf:(0.76)
+ 10. famsize=GT3 failures=Fail-Ninguno paid=Paid-no 356 ==> Alc=Alc-No 268    conf:(0.75)
+ 11. failures=Fail-Ninguno schoolsup=ScSup-no paid=Paid-no nursery=Nurs-yes higher=High-yes 350 ==> Alc=Alc-No 263    conf:(0.75)
+
+ Confianza de 0.82 a 0.75
+ 
+Sexo Femenino, sin soporte educacional extra, sin suspensos, no pagan clases extras, quieren ir a la universidad tienden al alcohol bajo. Ademas van en el colegio GPm familia mayor a 3
+
+###### Alc-Si con Value Filter
+
+Apriori
+=======
+
+Minimum support: 0.5 (96 instances)
+Minimum metric <confidence>: 0.7
+Number of cycles performed: 10
+
+1. paid=Paid-no 178 ==> Alc=Alc-Si 178    conf:(1)
+  2. schoolsup=ScSup-no 176 ==> Alc=Alc-Si 176    conf:(1)
+  3. Pstatus=T 173 ==> Alc=Alc-Si 173    conf:(1)
+  4. higher=High-yes 165 ==> Alc=Alc-Si 165    conf:(1)
+  5. schoolsup=ScSup-no paid=Paid-no 161 ==> Alc=Alc-Si 161    conf:(1)
+  6. Pstatus=T paid=Paid-no 158 ==> Alc=Alc-Si 158    conf:(1)
+  7. Pstatus=T schoolsup=ScSup-no 156 ==> Alc=Alc-Si 156    conf:(1)
+  8. internet=Inet-yes 153 ==> Alc=Alc-Si 153    conf:(1)
+  9. failures=Fail-Ninguno 152 ==> Alc=Alc-Si 152    conf:(1)
+ 10. paid=Paid-no higher=High-yes 150 ==> Alc=Alc-Si 150    conf:(1)
+ 
+ Confianza del 100%
+ 
+ Sin soporte educacional extra, no pagan clases extras, los padre viven juntos, desean ir a la universidad, sexo masculino, escuela urbana, en la escuela GP
+ 
+ ####### Alc-No Value Filter
+ 
+ Apriori
+=======
+
+Minimum support: 0.6 (274 instances)
+Minimum metric <confidence>: 0.7
+Number of cycles performed: 8
+
+1. paid=Paid-no 432 ==> Alc=Alc-No 432    conf:(1)
+  2. higher=High-yes 415 ==> Alc=Alc-No 415    conf:(1)
+  3. schoolsup=ScSup-no 405 ==> Alc=Alc-No 405    conf:(1)
+  4. failures=Fail-Ninguno 397 ==> Alc=Alc-No 397    conf:(1)
+  5. Pstatus=T 396 ==> Alc=Alc-No 396    conf:(1)
+  6. paid=Paid-no higher=High-yes 394 ==> Alc=Alc-No 394    conf:(1)
+  7. schoolsup=ScSup-no paid=Paid-no 387 ==> Alc=Alc-No 387    conf:(1)
+  8. failures=Fail-Ninguno paid=Paid-no 377 ==> Alc=Alc-No 377    conf:(1)
+  9. Pstatus=T paid=Paid-no 376 ==> Alc=Alc-No 376    conf:(1)
+ 10. failures=Fail-Ninguno higher=High-yes 374 ==> Alc=Alc-No 374    conf:(1)
+ 
+ Confianza del 100%
+ 
+ No pagan clases extras, quieren ir a la universidad, sin soporte educacional extra, sin suspensos, urbano, sexo femenino, familia mayor a 3, escuela Gp, padres juntos tienden a bajo consumo de alcohol
+
 
 ### 05/01/2017 Aythami
 
