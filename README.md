@@ -10,3 +10,4 @@ Repositorio para el proyecto de la asignatura Tratamiento Inteligente de Datos d
 - `student/` contiene los datasets originales y los generados a lo largo del trabajo.
 - `DIARIO.md` contiene un diario de desarrollo del trabajo usado durante el mismo para ir recogiendo conclusiones y registrando las técnicas empleadas.
 - `Presentación.pdf` es la presentación de este trabajo en formato pdf.
+- `Memoria.pdf` es la memoria del proyecto en formato pdf.
